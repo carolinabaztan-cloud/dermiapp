@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DermIA · Vitiligo · Tratamiento Biológico / JAKi</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#c4927a;--rose-l:#f5ede8;--rose-m:#e8c4b4;
+  --lav:#7a7a9a;--lav-l:#eeeef8;--lav-m:#b4b4cc;
+  --ink:#2a3040;--ink2:#3a4258;
+  --cream:#faf8f5;--cream2:#f2ede8;
+  --border:#e4ddd6;--muted:#9090a8;
+  --card:#fff;--bg:#f5f1ec;--radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+.nav{background:#fff;padding:0 1.8rem;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(42,48,64,0.08);border-bottom:1px solid var(--border);}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;}
+.nav-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:linear-gradient(135deg,var(--rose-l),var(--lav-l));border:1.5px solid var(--rose-m);}
+.nav-wordmark{font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;color:var(--ink);}
+.nav-wordmark .ia{background:linear-gradient(135deg,var(--rose),var(--lav));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;}
+.nav-sub{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:0.1rem;}
+.nav-divider{width:1px;height:28px;background:var(--border);margin:0 0.5rem;}
+.nav-steps{display:flex;gap:0.2rem;}
+.nav-step{padding:0.24rem 0.55rem;border-radius:20px;font-size:0.65rem;font-weight:600;cursor:pointer;color:var(--muted);transition:all 0.2s;border:1.5px solid transparent;}
+.nav-step.active{background:var(--rose-l);color:var(--rose);border-color:var(--rose-m);}
+.nav-step.done{color:var(--lav);border-color:var(--lav-l);}
+@media(max-width:700px){.nav-steps,.nav-divider{display:none;}.nav{padding:0 1rem;}}
+.mob-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:0.65rem 1rem;z-index:200;box-shadow:0 -4px 16px rgba(42,48,64,0.1);}
+.mob-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;max-width:880px;margin:0 auto;}
+.mob-step-info{display:flex;flex-direction:column;align-items:center;flex:1;}
+.mob-step-dots{display:flex;gap:0.25rem;margin-bottom:0.18rem;}
+.mob-dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:all 0.2s;}
+.mob-dot.active{background:var(--rose);width:18px;border-radius:4px;}
+.mob-dot.done{background:var(--lav);}
+.mob-step-label{font-size:0.62rem;color:var(--muted);font-weight:600;letter-spacing:0.05em;}
+.mob-btn{padding:0.55rem 1.1rem;border-radius:8px;font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;border:none;white-space:nowrap;}
+.mob-btn-p{background:linear-gradient(135deg,var(--rose),var(--lav));color:#fff;}
+.mob-btn-g{background:var(--cream2);color:var(--muted);border:1.5px solid var(--border);}
+@media(max-width:700px){.mob-nav{display:block;}.wrap{padding:2rem 1rem 6rem;}}
+.wrap{max-width:880px;margin:0 auto;padding:2rem 1.2rem 4rem;}
+.step{display:none;}
+.step.active{display:block;animation:up 0.3s ease;}
+@keyframes up{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.prog{height:3px;background:var(--border);border-radius:2px;margin-bottom:2rem;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--lav));border-radius:2px;transition:width 0.4s;}
+.step-ey{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:0.3rem;}
+.step-ti{font-family:'Lora',serif;font-size:1.85rem;color:var(--ink);line-height:1.15;margin-bottom:0.4rem;}
+.step-de{font-size:0.84rem;color:var(--muted);max-width:540px;line-height:1.65;margin-bottom:1.8rem;}
+.card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:1.4rem;margin-bottom:1rem;box-shadow:0 2px 10px rgba(42,48,64,0.05);}
+.card-title{font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+.card-title::before{content:'';display:inline-block;width:3px;height:14px;background:linear-gradient(180deg,var(--rose),var(--lav));border-radius:2px;}
+.fg{display:grid;gap:0.85rem;}
+.fg2{grid-template-columns:1fr 1fr;}
+.fg3{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:560px){.fg2,.fg3{grid-template-columns:1fr 1fr;}}
+@media(max-width:380px){.fg2,.fg3{grid-template-columns:1fr;}}
+.field{display:flex;flex-direction:column;gap:0.3rem;}
+.field label{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.field input,.field select,.field textarea{background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:0.58rem 0.85rem;font-family:'Raleway',sans-serif;font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(196,146,122,0.12);background:#fff;}
+.field textarea{resize:vertical;min-height:66px;line-height:1.55;}
+.field input[readonly]{background:var(--rose-l);color:var(--rose);font-weight:700;cursor:default;border-color:var(--rose-m);}
+.info-box{background:linear-gradient(135deg,var(--rose-l),var(--lav-l));border:1px solid var(--rose-m);border-radius:var(--radius);padding:0.9rem 1.1rem;font-size:0.81rem;color:var(--ink2);line-height:1.65;margin-bottom:1rem;}
+.info-box strong{color:var(--rose);}
+
+/* VITILIGO SCORE — VES / VASI-like slider */
+.vit-area{background:var(--cream);border:1.5px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:0.75rem;transition:all 0.2s;}
+.vit-area.filled{border-color:var(--rose-m);background:var(--rose-l);}
+.vit-area-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;}
+.vit-area-name{font-weight:800;font-size:0.9rem;color:var(--ink);}
+.vit-weight{font-size:0.7rem;font-weight:700;padding:0.18rem 0.55rem;border-radius:20px;background:var(--lav-l);color:var(--lav);}
+.vit-score{font-family:'Lora',serif;font-size:1.4rem;color:var(--rose);}
+.vit-slider-wrap{display:flex;align-items:center;gap:0.8rem;}
+.vit-slider{flex:1;-webkit-appearance:none;height:6px;border-radius:3px;background:var(--border);outline:none;cursor:pointer;}
+.vit-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--rose);cursor:pointer;}
+.vit-val{font-family:'Lora',serif;font-size:1.1rem;font-weight:600;color:var(--rose);min-width:45px;text-align:right;}
+
+/* RESULT */
+.result-box{border-radius:var(--radius);padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1.2rem;border:2px solid var(--border);background:var(--cream);transition:all 0.35s;margin-top:0.8rem;}
+.result-box.ctrl{background:#edf7f2;border-color:#6dbf94;}
+.result-box.mild{background:#fefce8;border-color:#d4b820;}
+.result-box.mod{background:#fef3ee;border-color:#e07b2a;}
+.result-box.sev{background:#fef0f0;border-color:#c0392b;}
+.res-num{font-family:'Lora',serif;font-size:2.8rem;line-height:1;min-width:60px;text-align:center;color:var(--muted);}
+.ctrl .res-num{color:#1e8c5a;}.mild .res-num{color:#d4ac10;}.mod .res-num{color:#e07b2a;}.sev .res-num{color:#c0392b;}
+.res-lbl{font-size:0.95rem;font-weight:700;color:var(--muted);}
+.ctrl .res-lbl{color:#1e8c5a;}.mild .res-lbl{color:#d4ac10;}.mod .res-lbl{color:#e07b2a;}.sev .res-lbl{color:#c0392b;}
+.res-desc{font-size:0.79rem;color:var(--muted);line-height:1.5;margin-top:0.18rem;}
+.res-badge{display:inline-block;font-size:0.68rem;font-weight:700;padding:0.18rem 0.6rem;border-radius:20px;margin-top:0.28rem;}
+.ctrl .res-badge{background:#d1fae5;color:#065f46;}.mild .res-badge{background:#fef9c3;color:#713f12;}
+.mod .res-badge{background:#ffedd5;color:#9a3412;}.sev .res-badge{background:#fee2e2;color:#991b1b;}
+
+/* DLQI */
+.dlqi-q{background:var(--cream);border:1.5px solid var(--border);border-radius:9px;padding:0.75rem 0.9rem;margin-bottom:0.55rem;transition:border-color 0.2s;}
+.dlqi-q.answered{border-color:var(--rose-m);background:var(--rose-l);}
+.dlqi-q-text{font-size:0.81rem;font-weight:600;color:var(--ink);margin-bottom:0.45rem;}
+.dlqi-q-num{color:var(--rose);font-weight:800;margin-right:0.35rem;}
+.dlqi-opts{display:flex;gap:0.3rem;flex-wrap:wrap;}
+.dlqi-btn{padding:0.26rem 0.6rem;border-radius:20px;border:1.5px solid var(--border);background:#fff;color:var(--muted);font-size:0.69rem;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Raleway',sans-serif;}
+.dlqi-btn.sel{background:linear-gradient(135deg,var(--rose),var(--lav));border-color:transparent;color:#fff;}
+
+/* CHECKBOXES */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.42rem;}
+@media(max-width:500px){.check-grid{grid-template-columns:1fr;}}
+.check-item{display:flex;align-items:center;gap:0.5rem;padding:0.42rem 0.65rem;border-radius:8px;border:1.5px solid var(--border);background:var(--cream);cursor:pointer;font-size:0.8rem;line-height:1.35;transition:all 0.15s;user-select:none;}
+.check-item:hover,.check-item.checked{border-color:var(--rose-m);background:var(--rose-l);}
+.check-box{width:16px;height:16px;flex-shrink:0;border:2px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;background:#fff;transition:all 0.15s;}
+.check-item.checked .check-box{background:linear-gradient(135deg,var(--rose),var(--lav));border-color:transparent;}
+.check-item.checked .check-box::after{content:'✓';color:#fff;font-size:0.66rem;font-weight:900;}
+.tto-row{display:flex;align-items:center;gap:0.5rem;padding:0.52rem 0.75rem;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;font-size:0.81rem;cursor:pointer;transition:all 0.15s;user-select:none;margin-bottom:0.42rem;}
+.tto-row:hover,.tto-row.checked{border-color:var(--rose-m);background:var(--rose-l);}
+.tto-icon{width:16px;height:16px;flex-shrink:0;border:2px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;background:#fff;font-size:0.66rem;font-weight:900;transition:all 0.15s;}
+.tto-row.checked .tto-icon{background:linear-gradient(135deg,var(--rose),var(--lav));border-color:transparent;color:#fff;}
+.tto-detail{flex:1;}.tto-name{font-weight:700;color:var(--ink);}
+.tto-note{font-size:0.71rem;color:var(--muted);margin-top:0.06rem;}
+.tto-res{font-size:0.67rem;font-weight:700;padding:0.12rem 0.42rem;border-radius:10px;background:#fee2e2;color:#c0392b;white-space:nowrap;}
+
+/* RX */
+.rx-hl{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:var(--radius);padding:1.2rem 1.4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0.85rem;margin-bottom:0.75rem;}
+@media(max-width:500px){.rx-hl{grid-template-columns:1fr 1fr;}}
+.rx-it label{display:block;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.42);margin-bottom:0.18rem;font-weight:600;}
+.rx-it .rv{font-family:'Lora',serif;font-size:1rem;color:#fff;}
+.rx-it .rv small{font-family:'Raleway',sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.48);display:block;margin-top:0.05rem;}
+
+/* SUMMARY */
+.sum-hd{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:var(--radius) var(--radius) 0 0;padding:1.5rem 1.8rem;color:#fff;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.sum-hd h2{font-family:'Lora',serif;font-size:1.3rem;font-weight:600;}
+.sum-hd p{font-size:0.78rem;color:rgba(255,255,255,0.48);margin-top:0.18rem;}
+.sum-tag{background:linear-gradient(135deg,var(--rose),var(--lav));color:#fff;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.26rem 0.75rem;border-radius:20px;white-space:nowrap;align-self:flex-start;}
+.sum-body{border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius) var(--radius);overflow:hidden;}
+.sum-sec{padding:1.1rem 1.4rem;border-bottom:1px solid var(--border);}
+.sum-sec:last-child{border-bottom:none;}
+.sum-sec-title{font-size:0.67rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.72rem;}
+.sum-row{display:flex;gap:0.75rem;margin-bottom:0.32rem;flex-wrap:wrap;}
+.sum-key{font-size:0.75rem;color:var(--muted);min-width:130px;flex-shrink:0;}
+.sum-val{font-size:0.8rem;font-weight:600;color:var(--ink);}
+.big-score{font-family:'Lora',serif;font-size:2.4rem;font-weight:400;}
+.btn-row{display:flex;gap:0.7rem;margin-top:1.4rem;flex-wrap:wrap;}
+@media(max-width:500px){.btn-row{flex-direction:column;}.btn{width:100%;justify-content:center;font-size:1rem;padding:0.85rem 1.5rem;}}
+.btn{padding:0.62rem 1.5rem;border-radius:8px;font-family:'Raleway',sans-serif;font-size:0.84rem;font-weight:700;cursor:pointer;border:none;transition:all 0.2s;display:flex;align-items:center;gap:0.4rem;}
+.btn-p{background:linear-gradient(135deg,var(--rose),var(--lav));color:#fff;box-shadow:0 3px 10px rgba(196,146,122,0.3);}
+.btn-p:hover{transform:translateY(-1px);}
+.btn-g{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+.btn-g:hover{border-color:var(--rose);color:var(--rose);background:var(--rose-l);}
+.btn-pr{background:var(--ink);color:#fff;}
+.btn-d{background:var(--cream2);color:var(--muted);border:1.5px solid var(--border);}
+.warn-box{background:linear-gradient(135deg,#fff8f5,#f5f5ff);border:1px solid var(--rose-m);border-radius:9px;padding:0.8rem 1rem;font-size:0.79rem;color:var(--ink2);margin-top:0.8rem;line-height:1.55;}
+.warn-box strong{color:var(--rose);}
+.ref-table{margin-top:0.9rem;border:1px solid var(--border);border-radius:9px;overflow:hidden;}
+.ref-table table{width:100%;border-collapse:collapse;font-size:0.77rem;}
+.ref-table th{background:var(--ink2);color:#fff;padding:0.36rem 0.75rem;text-align:left;font-weight:600;}
+.ref-table td{padding:0.33rem 0.75rem;border-top:1px solid var(--border);}
+.ref-table tr:nth-child(even) td{background:var(--cream);}
+
+/* ESTUDIOS */
+.est-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:0.6rem;padding:0.5rem 0.7rem;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;margin-bottom:0.42rem;font-size:0.81rem;}
+.est-name{font-weight:600;color:var(--ink);}
+.est-sel{border:1px solid var(--border);border-radius:6px;padding:0.2rem 0.4rem;font-family:'Raleway',sans-serif;font-size:0.74rem;background:#fff;color:var(--ink);cursor:pointer;outline:none;}
+.est-input{border:1px solid var(--border);border-radius:6px;padding:0.2rem 0.5rem;font-family:'Raleway',sans-serif;font-size:0.74rem;background:#fff;width:120px;color:var(--ink);}
+@media(max-width:480px){.est-row{grid-template-columns:1fr 1fr;}.est-name{grid-column:1/-1;}}
+
+@media print{
+  .nav,.prog,.btn-row,.step-ey,.step-ti,.step-de,.warn-box,.mob-nav{display:none!important;}
+  .wrap{padding:0;max-width:100%;}
+  .step{display:none!important;}
+  .step#step6{display:block!important;}
+  body{background:#fff;}
+  .card{box-shadow:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-icon">
+      <svg width="22" height="22" viewBox="0 0 100 100" fill="none">
+        <path d="M55 15 Q70 15 75 30 Q80 45 72 60 Q65 72 55 75 Q45 78 38 70" stroke="url(#rg)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="68" cy="58" r="14" stroke="url(#lg)" stroke-width="3.5" fill="rgba(196,146,122,0.1)"/>
+        <line x1="78" y1="68" x2="88" y2="80" stroke="url(#lg)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="62" cy="54" r="2.5" fill="#c4927a" opacity="0.7"/>
+        <circle cx="70" cy="52" r="2" fill="#7a7a9a" opacity="0.7"/>
+        <defs>
+          <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c4927a"/><stop offset="100%" stop-color="#7a7a9a"/></linearGradient>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7a7a9a"/><stop offset="100%" stop-color="#c4927a"/></linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div>
+      <div class="nav-wordmark">Derm<span class="ia">IA</span></div>
+      <div class="nav-sub">Vitiligo · Tratamiento Biológico / JAKi</div>
+    </div>
+  </div>
+  <div class="nav-divider"></div>
+  <div class="nav-steps">
+    <div class="nav-step active" onclick="goTo(0)">1. Médico</div>
+    <div class="nav-step" onclick="goTo(1)">2. Paciente</div>
+    <div class="nav-step" onclick="goTo(2)">3. VASI</div>
+    <div class="nav-step" onclick="goTo(3)">4. DLQI</div>
+    <div class="nav-step" onclick="goTo(4)">5. Clínica</div>
+    <div class="nav-step" onclick="goTo(5)">6. Estudios</div>
+    <div class="nav-step" onclick="goTo(6)">7. Pedido</div>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <div class="mob-nav-inner">
+    <button class="mob-btn mob-btn-g" id="mobBack" onclick="mobGoBack()" style="display:none">← Atrás</button>
+    <div class="mob-step-info">
+      <div class="mob-step-dots" id="mobDots"></div>
+      <div class="mob-step-label" id="mobLabel">Paso 1 de 7</div>
+    </div>
+    <button class="mob-btn mob-btn-p" id="mobNext" onclick="mobGoNext()">Continuar →</button>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="prog"><div class="prog-fill" id="pf" style="width:14.3%"></div></div>
+
+<!-- STEP 0: MÉDICO -->
+<div class="step active" id="step0">
+  <div class="step-ey">Paso 1 de 7</div><div class="step-ti">Datos del médico</div>
+  <div class="step-de">Esta información aparecerá en el encabezado del pedido para la obra social.</div>
+  <div class="card"><div class="card-title">Médico solicitante</div>
+    <div class="fg fg2">
+      <div class="field"><label>Nombre y apellido *</label><input id="med_nombre" placeholder="Dr/Dra. Apellido, Nombre"></div>
+      <div class="field"><label>Especialidad</label><input id="med_esp" placeholder="Dermatología"></div>
+      <div class="field"><label>Matrícula *</label><input id="med_mat" placeholder="MP / MN …"></div>
+      <div class="field"><label>Teléfono</label><input id="med_tel" placeholder="+54 9 …"></div>
+      <div class="field"><label>Mail</label><input id="med_mail" placeholder="correo@ejemplo.com"></div>
+      <div class="field"><label>Institución</label><input id="med_inst" placeholder="Hospital / Consultorio"></div>
+      <div class="field" style="grid-column:1/-1"><label>Domicilio profesional</label><input id="med_dir" placeholder="Calle, N°, Ciudad, Provincia"></div>
+    </div>
+  </div>
+  <div class="btn-row"><button class="btn btn-p" onclick="goTo(1)">Continuar →</button></div>
+</div>
+
+<!-- STEP 1: PACIENTE -->
+<div class="step" id="step1">
+  <div class="step-ey">Paso 2 de 7</div><div class="step-ti">Datos del paciente</div>
+  <div class="step-de">Completá los datos del afiliado tal como figuran en la credencial de la obra social.</div>
+  <div class="card"><div class="card-title">Identificación</div>
+    <div class="fg fg2">
+      <div class="field"><label>Apellido y nombre *</label><input id="pac_nombre" placeholder="Apellido, Nombre"></div>
+      <div class="field"><label>DNI *</label><input id="pac_dni" placeholder="12.345.678"></div>
+      <div class="field"><label>Fecha de nacimiento</label><input id="pac_fnac" type="date" onchange="calcEdad()"></div>
+      <div class="field"><label>Edad</label><input id="pac_edad" type="number" placeholder="45" min="1" max="120" readonly></div>
+      <div class="field"><label>Sexo</label><select id="pac_sexo"><option value="">— Seleccionar —</option><option>Femenino</option><option>Masculino</option><option>No binario / Otro</option></select></div>
+      <div class="field"><label>N° de afiliado</label><input id="pac_afil" placeholder="Nro. afiliado OS"></div>
+      <div class="field"><label>Plan</label><input id="pac_plan" placeholder="Nombre del plan"></div>
+      <div class="field"><label>Obra social / Prepaga</label><input id="pac_os" placeholder="OSDE, PAMI, Swiss Medical…"></div>
+      <div class="field"><label>Teléfono</label><input id="pac_tel" placeholder="+54 9 …"></div>
+      <div class="field" style="grid-column:1/-1"><label>Domicilio</label><input id="pac_dir" placeholder="Calle, N°, Ciudad, Provincia"></div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Datos clínicos</div>
+    <div class="fg fg3">
+      <div class="field"><label>Tiempo de evolución</label>
+        <select id="pac_evol"><option value="">—</option><option>Menos de 6 meses</option><option>6–12 meses</option><option>1–2 años</option><option>2–5 años</option><option>Más de 5 años</option></select>
+      </div>
+      <div class="field"><label>Tipo de vitiligo</label>
+        <select id="cli_tipo"><option>Vitiligo generalizado / no segmentario</option><option>Vitiligo acrofacial</option><option>Vitiligo segmentario</option><option>Vitiligo universal</option><option>Vitiligo mixto</option></select>
+      </div>
+      <div class="field"><label>Actividad de la enfermedad</label>
+        <select id="cli_actividad"><option>Estable (≥6 meses sin nuevas lesiones)</option><option>Progresivo (nuevas manchas en últimos 6 m)</option><option>Rápidamente progresivo</option></select>
+      </div>
+    </div>
+    <div class="fg fg2" style="margin-top:0.8rem;">
+      <div class="field"><label>Localización especial</label>
+        <select id="cli_loc"><option value="">— Ninguna —</option><option>Cara / facial</option><option>Manos / acral</option><option>Genitales</option><option>Cara + Manos</option><option>Cara + Acral extendido</option></select>
+      </div>
+      <div class="field"><label>Repigmentación espontánea previa</label>
+        <select id="cli_repig"><option>No</option><option>Sí (parcial)</option><option>Sí (relevante)</option></select>
+      </div>
+    </div>
+    <div class="fg" style="margin-top:0.8rem;">
+      <div class="field"><label>Comorbilidades autoinmunes (tiroiditis, AA, DA, otras)</label><textarea id="pac_comor" placeholder="Tiroiditis de Hashimoto, alopecia areata, dermatitis atópica, LES…"></textarea></div>
+      <div class="field"><label>Alergias / contraindicaciones</label><textarea id="pac_alergias" placeholder="Sin alergias conocidas / Detallar si hay…"></textarea></div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(0)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(2)">Continuar →</button>
+  </div>
+</div>
+
+<!-- STEP 2: VASI -->
+<div class="step" id="step2">
+  <div class="step-ey">Paso 3 de 7</div><div class="step-ti">Score VASI</div>
+  <div class="step-de">Vitiligo Area Scoring Index — cuantificá el área despigmentada en cada región corporal.</div>
+  <div class="info-box">
+    <strong>Método:</strong> Estimá el porcentaje de despigmentación (0–100%) en cada región usando el deslizador. El VASI total se calcula ponderado por el % de superficie corporal de cada área.<br>
+    <strong>VASI total:</strong> 0–100 · <strong>Leve:</strong> &lt;10 · <strong>Moderado:</strong> 10–50 · <strong>Extenso:</strong> &gt;50 · <strong>BSA afectada ≥10%</strong> = criterio de indicación para ruxolitinib o biológico.
+  </div>
+  <div class="card"><div class="card-title">Despigmentación por región</div>
+    <div id="vasiAreas"></div>
+    <div class="result-box" id="vasiResult">
+      <div class="res-num" id="vasiTotal">0</div>
+      <div><div class="res-lbl" id="vasiLbl">Ajustá los deslizadores</div>
+      <div class="res-desc" id="vasiDesc">Deslizá para indicar el % de despigmentación en cada región.</div>
+      <div class="res-badge" id="vasiBadge" style="display:none"></div></div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Referencia VASI — Superficie corporal por región</div>
+    <div class="ref-table"><table>
+      <thead><tr><th>Región</th><th>% SC</th><th>Justificación</th></tr></thead>
+      <tbody>
+        <tr><td><b>Cabeza y cuello</b></td><td>9%</td><td>Zona con mayor impacto estético</td></tr>
+        <tr><td><b>Extremidades superiores</b></td><td>9%</td><td>Brazos, antebrazos, manos</td></tr>
+        <tr><td><b>Tronco anterior</b></td><td>18%</td><td>Tórax y abdomen anterior</td></tr>
+        <tr><td><b>Tronco posterior</b></td><td>18%</td><td>Dorso y glúteos</td></tr>
+        <tr><td><b>Extremidades inferiores</b></td><td>36%</td><td>Muslos, piernas, pies</td></tr>
+        <tr><td><b>Genitales</b></td><td>1%</td><td>Área genital</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(1)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(3)">Continuar →</button>
+  </div>
+</div>
+
+<!-- STEP 3: DLQI -->
+<div class="step" id="step3">
+  <div class="step-ey">Paso 4 de 7</div><div class="step-ti">Score DLQI</div>
+  <div class="step-de">Dermatology Life Quality Index — impacto en calidad de vida durante la última semana.</div>
+  <div class="info-box">
+    <strong>0</strong>=Nada · <strong>1</strong>=Un poco · <strong>2</strong>=Bastante · <strong>3</strong>=Muchísimo · Máximo: <strong>30</strong>
+  </div>
+  <div class="card"><div class="card-title">Preguntas DLQI</div><div id="dlqiQs"></div></div>
+  <div class="card"><div class="card-title">Resultado DLQI</div>
+    <div class="result-box" id="dlqiResult">
+      <div class="res-num" id="dlqiTotal">—</div>
+      <div><div class="res-lbl" id="dlqiLbl">Completá todas las preguntas</div>
+      <div class="res-desc" id="dlqiDesc">Respondé las 10 preguntas.</div>
+      <div class="res-badge" id="dlqiBadge" style="display:none"></div></div>
+    </div>
+    <div class="ref-table" style="margin-top:1rem;"><table>
+      <thead><tr><th>Puntaje</th><th>Impacto</th></tr></thead>
+      <tbody>
+        <tr><td><b>0–1</b></td><td>Sin efecto</td></tr>
+        <tr><td><b>2–5</b></td><td>Pequeño efecto</td></tr>
+        <tr><td><b>6–10</b></td><td>Efecto moderado</td></tr>
+        <tr><td><b>11–20</b></td><td>Efecto grande</td></tr>
+        <tr><td><b>21–30</b></td><td>Efecto extremadamente grande</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(2)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(4)">Continuar →</button>
+  </div>
+</div>
+
+<!-- STEP 4: CLÍNICA -->
+<div class="step" id="step4">
+  <div class="step-ey">Paso 5 de 7</div><div class="step-ti">Justificación clínica</div>
+  <div class="step-de">Documentá los tratamientos previos y los criterios de indicación del tratamiento biológico / JAKi.</div>
+
+  <!-- RUXOLITINIB INFO -->
+  <div style="background:var(--ink);border-radius:var(--radius);padding:1.3rem 1.5rem;color:#fff;margin-bottom:1rem;">
+    <div style="font-family:'Lora',serif;font-size:1.3rem;font-weight:600;margin-bottom:0.12rem;">Ruxolitinib crema 1.5%</div>
+    <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);font-style:italic;margin-bottom:1rem;">Opzelura® · Inhibidor JAK1/JAK2 tópico — Primera indicación aprobada FDA/EMA para vitiligo no segmentario</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem;">
+      <div><div style="font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.18rem;font-weight:600;">Formulación</div><div style="font-family:'Lora',serif;font-size:1rem;color:#fff;">Crema 1.5%<small style="font-family:'Raleway',sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.48);display:block;margin-top:0.05rem;">Tubo 60 g</small></div></div>
+      <div><div style="font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.18rem;font-weight:600;">Vía</div><div style="font-family:'Lora',serif;font-size:1rem;color:#fff;">Tópica<small style="font-family:'Raleway',sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.48);display:block;margin-top:0.05rem;">Aplicación 2 veces/día</small></div></div>
+      <div><div style="font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.18rem;font-weight:600;">Duración inicial</div><div style="font-family:'Lora',serif;font-size:1rem;color:#fff;">24 semanas<small style="font-family:'Raleway',sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.48);display:block;margin-top:0.05rem;">Evaluar respuesta a sem 24</small></div></div>
+    </div>
+    <div style="background:rgba(255,255,255,0.07);border-radius:8px;padding:0.9rem 1rem;font-size:0.8rem;line-height:1.7;color:rgba(255,255,255,0.82);">
+      <strong style="color:#e8c4b4;">Indicación aprobada:</strong> Vitiligo no segmentario en adultos y adolescentes ≥12 años.<br>
+      <strong style="color:#e8c4b4;">Aplicación:</strong> Fina capa 2 veces/día en las lesiones. No más de 10% de la SC total por aplicación.<br>
+      <strong style="color:#e8c4b4;">Evaluación:</strong> Respuesta facial evaluable a las 24 semanas; repigmentación corporal puede requerir 52 semanas. Mayor eficacia en áreas faciales.<br>
+      <strong style="color:#e8c4b4;">Monitoreo:</strong> Hemograma si el área tratada supera el 10% SC. Vigilar infecciones locales (foliculitis, herpes).
+    </div>
+    <div style="background:rgba(196,146,122,0.18);border:1px solid rgba(196,146,122,0.35);border-radius:8px;padding:0.65rem 0.9rem;margin-top:0.75rem;font-size:0.77rem;color:#e8c4b4;line-height:1.5;">
+      ⚠️ No usar en área &gt;10% SC sin monitoreo sistémico. Evitar mucosas. No se recomiendan vacunas vivas durante el tratamiento. No usar en embarazo/lactancia sin evaluación riesgo-beneficio.
+    </div>
+  </div>
+
+  <div class="card"><div class="card-title">Tratamientos previos</div>
+    <div id="ttoList"></div>
+    <div class="fg" style="margin-top:0.75rem;">
+      <div class="field"><label>Otros / Observaciones</label><textarea id="cli_otros" placeholder="Otros tratamientos, motivo de falla o intolerancia…"></textarea></div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Criterios de indicación (AAD / EDF 2023)</div>
+    <div class="check-grid" id="criteriosGrid"></div>
+    <div class="fg" style="margin-top:0.75rem;">
+      <div class="field"><label>Observaciones adicionales</label><textarea id="cli_obs" placeholder="Impacto psicológico, laboral, antecedentes relevantes, fotoprotección…"></textarea></div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(3)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(5)">Continuar →</button>
+  </div>
+</div>
+
+<!-- STEP 5: ESTUDIOS -->
+<div class="step" id="step5">
+  <div class="step-ey">Paso 6 de 7</div><div class="step-ti">Estudios previos al tratamiento</div>
+  <div class="step-de">Estudios recomendados antes de iniciar ruxolitinib tópico y/o fototerapia coadyuvante. Requeridos por la obra social.</div>
+  <div class="card">
+    <div class="card-title">Adjuntar estudios</div>
+    <div class="info-box"><strong>📎 Adjuntá los estudios requeridos:</strong><br>Laboratorio general, Serologías, Screening TBC (PPD/IGRA), Vacunas.</div>
+    <div class="fg" style="margin-top:0.5rem;">
+      <div class="field"><label>Laboratorio general y serologías</label>
+        <input type="file" id="adj_lab" accept=".pdf,.jpg,.jpeg,.png" multiple style="padding:0.4rem;cursor:pointer;">
+        <span style="font-size:0.72rem;color:var(--muted);margin-top:0.2rem;">PDF, JPG o PNG. Podés adjuntar varios archivos.</span>
+      </div>
+      <div class="field"><label>Screening TBC (PPD / IGRA)</label>
+        <input type="file" id="adj_tbc" accept=".pdf,.jpg,.jpeg,.png" multiple style="padding:0.4rem;cursor:pointer;">
+      </div>
+      <div class="field"><label>Certificado de vacunación</label>
+        <input type="file" id="adj_vac" accept=".pdf,.jpg,.jpeg,.png" multiple style="padding:0.4rem;cursor:pointer;">
+      </div>
+      <div class="field"><label>Otros estudios</label>
+        <input type="file" id="adj_otros" accept=".pdf,.jpg,.jpeg,.png" multiple style="padding:0.4rem;cursor:pointer;">
+      </div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Estudios específicos de vitiligo</div><div id="extraGrid"></div></div>
+  <div class="card"><div class="card-title">Vacunas</div>
+    <div class="info-box" style="margin-bottom:0.8rem;"><strong>Recomendación:</strong> Completar esquema <strong>antes</strong> del tratamiento. Evitar vacunas vivas atenuadas si el área tratada supera 10% SC.</div>
+    <div id="vacGrid"></div>
+  </div>
+  <div class="card"><div class="card-title">Observaciones</div>
+    <div class="field"><label>Observaciones sobre estudios previos</label>
+      <textarea id="est_obs" placeholder="Resultados alterados, estudios pendientes, motivo de excepción…"></textarea>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(4)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(6)">Ver pedido →</button>
+  </div>
+</div>
+
+<!-- STEP 6: PEDIDO -->
+
+<!-- STEP 6: CONSENTIMIENTO -->
+<div class="step" id="step8">
+  <div class="step-ey">Consentimiento</div>
+  <div class="step-ti">Consentimiento informado</div>
+  <div class="step-de">El paciente debe leer y firmar este consentimiento antes de iniciar el tratamiento.</div>
+  <div class="card">
+    <div class="card-title">Consentimiento del paciente — Vitiligo</div>
+    <div class="info-box">
+      Se me ha informado que mi médico/a tratante indica un tratamiento para mi diagnóstico de <strong>Vitiligo</strong>. Comprendo los riesgos, beneficios y la necesidad de controles periódicos. Puedo retirar este consentimiento en cualquier momento.
+    </div>
+    <div class="fg fg2" style="margin-top:1rem;">
+      <div class="field"><label>Nombre completo del paciente</label><input id="cons_pac_nombre" placeholder="Se completa automáticamente" readonly></div>
+      <div class="field"><label>DNI del paciente</label><input id="cons_pac_dni" placeholder="Se completa automáticamente" readonly></div>
+      <div class="field"><label>Fecha de firma</label><input id="cons_fecha" type="date"></div>
+      <div class="field"><label>Lugar</label><input id="cons_lugar" placeholder="Ciudad, Provincia"></div>
+    </div>
+    <div class="fg" style="margin-top:1rem;">
+      <div class="field">
+        <label>Firma del paciente (adjuntar imagen)</label>
+        <input type="file" id="cons_firma_pac" accept=".jpg,.jpeg,.png,.pdf" style="padding:0.4rem;cursor:pointer;">
+      </div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(75)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(7)">Continuar →</button>
+  </div>
+</div>
+
+<!-- STEP 7: RECETA -->
+<div class="step" id="step7">
+  <div class="step-ey">Receta médica</div>
+  <div class="step-ti">Receta médica</div>
+  <div class="step-de">Completá los datos de la prescripción.</div>
+  <div class="card">
+    <div class="card-title">Prescripción</div>
+    <div class="fg fg2">
+      <div class="field"><label>Diagnóstico CIE-10</label><input id="rec_cie" value="L80 — Vitiligo" readonly></div>
+      <div class="field"><label>Medicamento *</label><input id="rec_med" placeholder="Nombre del medicamento"></div>
+      <div class="field"><label>Dosis *</label><input id="rec_dosis" placeholder="ej: 300 mg"></div>
+      <div class="field"><label>Vía de administración</label>
+        <select id="rec_via"><option value="">— Seleccionar —</option><option>Subcutánea</option><option>Oral</option><option>Tópica</option><option>Intravenosa</option></select>
+      </div>
+      <div class="field"><label>Frecuencia *</label><input id="rec_frec" placeholder="ej: diario, semanal…"></div>
+      <div class="field"><label>Duración</label><input id="rec_dur" placeholder="ej: 6 meses, indefinido…"></div>
+      <div class="field"><label>Cantidad</label><input id="rec_cant" placeholder="ej: 2 tubos, 4 jeringas"></div>
+      <div class="field"><label>Fecha de emisión</label><input id="rec_fecha" type="date"></div>
+    </div>
+    <div class="fg" style="margin-top:0.5rem;">
+      <div class="field"><label>Indicaciones al paciente</label>
+        <textarea id="rec_indicaciones" placeholder="Instrucciones, conservación, precauciones…"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Firma y sello médico</div>
+    <div class="info-box">Al imprimir, el médico deberá <strong>firmar y sellar</strong> la receta.</div>
+    <div class="fg fg2">
+      <div class="field"><label>Médico prescriptor</label><input id="rec_medico" placeholder="Se completa automáticamente" readonly></div>
+      <div class="field"><label>Matrícula</label><input id="rec_matricula" placeholder="Se completa automáticamente" readonly></div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(6)">← Atrás</button>
+    <button class="btn btn-p" onclick="prepReceta();goTo(8)">Ver pedido completo →</button>
+  </div>
+</div>
+
+<div class="step" id="step6">
+  <div class="step-ey">Paso 7 de 7</div><div class="step-ti">Pedido listo para imprimir</div>
+  <div class="step-de">Revisá el resumen y exportá como PDF para la obra social.</div>
+  <div id="summaryOut"></div>
+  <div class="warn-box"><strong>⚠️ Antes de imprimir:</strong> Verificá los datos. El médico deberá firmar y sellar. Adjuntar: laboratorio, serologías, fotos de lesiones (antes/después si hay) y consentimiento informado.</div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(5)">← Editar</button>
+    <button class="btn btn-pr" onclick="window.print()">🖨 Imprimir / PDF</button>
+    <button class="btn btn-d" onclick="resetAll()">🗑 Nuevo pedido</button>
+  </div>
+</div>
+  <div style="margin-top:1.5rem;padding:1rem 1.2rem;background:var(--lav-l);border:1px solid var(--lav-m);border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+    <div>
+      <div style="font-size:0.75rem;font-weight:700;color:var(--lav);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.2rem;">💬 ¿Encontraste algo para mejorar?</div>
+      <div style="font-size:0.78rem;color:var(--ink2);">Tus sugerencias ayudan a mejorar DermIA para todos los médicos.</div>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwtqFhDYXy2ql0PZ3PbiOU82dAqzMcQgGabJDkCAypE2-NkQ/viewform?usp=publish-editor" target="_blank" style="padding:0.55rem 1.2rem;background:var(--lav);color:#fff;border-radius:8px;font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;">Sugerir cambios →</a>
+  </div>
+</div>
+
+<script>
+var cur=0, TOTAL=7;
+
+// VASI
+var VASI_AREAS=[
+  {id:'head',name:'Cabeza y cuello',bsa:0.09,emoji:'👤'},
+  {id:'arms',name:'Extremidades superiores',bsa:0.09,emoji:'💪'},
+  {id:'trunk_a',name:'Tronco anterior',bsa:0.18,emoji:'⬆️'},
+  {id:'trunk_p',name:'Tronco posterior',bsa:0.18,emoji:'⬇️'},
+  {id:'legs',name:'Extremidades inferiores',bsa:0.36,emoji:'🦵'},
+  {id:'genitals',name:'Genitales',bsa:0.01,emoji:'●'}
+];
+var vasiData={head:0,arms:0,trunk_a:0,trunk_p:0,legs:0,genitals:0};
+
+// DLQI
+var dlqiData=[null,null,null,null,null,null,null,null,null,null];
+var DLQI_QS=['Picazón, ardor o dolor en la piel/manchas','Vergüenza o timidez a causa del vitiligo','Interferencia en compras o cuidado del hogar','Influencia en la ropa o maquillaje elegidos','Afectación de actividades sociales o de ocio','Dificultad para hacer deportes','Interferencia en el trabajo o estudio','Problemas con pareja, amigos o familia','Dificultad en la vida sexual','Problemas con el tratamiento del vitiligo'];
+
+// TRATAMIENTOS
+var TTOS=[
+  {id:'t1',name:'Corticoides tópicos (media/alta potencia)',note:'Mometasona, betametasona, clobetasol',res:'Respuesta parcial / recurrencia'},
+  {id:'t2',name:'Inhibidores calcineurina tópicos',note:'Tacrolimus 0.1%, pimecrolimus 1% — cara, pliegues',res:'Respuesta parcial / intolerancia'},
+  {id:'t3',name:'Fototerapia NB-UVB',note:'≥36 sesiones, 3×/semana',res:'Respuesta parcial / insuficiente / no disponible'},
+  {id:'t4',name:'PUVA tópico o sistémico',note:'Psoraleno + UVA',res:'Respuesta parcial / intolerancia'},
+  {id:'t5',name:'Corticoides sistémicos (minipulso)',note:'Betametasona 5 mg VO sab/dom × 3–6 meses',res:'Respuesta parcial / dependencia / intolerancia'},
+  {id:'t6',name:'Metotrexato (off-label)',note:'10–15 mg/semana VO o SC',res:'Intolerancia / contraindicación / falla'},
+  {id:'t7',name:'Pseudocatalasa + UVB',note:'Terapia fotocatalítica (Khellin / PC-KUS)',res:'Respuesta insuficiente / no disponible'},
+  {id:'t8',name:'Trasplante autólogo de melanocitos',note:'Técnica quirúrgica — vitiligo estable',res:'No indicado / inestable / recurrencia'}
+];
+var ttoChecked={t1:true,t2:true,t3:true};
+
+// CRITERIOS
+var criterios=[
+  {id:'c1',label:'VASI o BSA ≥10% (vitiligo extenso)',checked:false},
+  {id:'c2',label:'Localización facial con impacto estético significativo',checked:false},
+  {id:'c3',label:'DLQI ≥ 10 (impacto significativo en CV)',checked:false},
+  {id:'c4',label:'Falla a ≥ 2 tratamientos convencionales',checked:true},
+  {id:'c5',label:'Vitiligo activo/progresivo documentado',checked:false},
+  {id:'c6',label:'Edad ≥ 12 años (ruxolitinib tópico)',checked:true},
+  {id:'c7',label:'Falla o contraindicación a fototerapia NB-UVB',checked:false},
+  {id:'c8',label:'Contraindicación a corticoides tópicos prolongados',checked:false},
+  {id:'c9',label:'Sin infección activa en el área a tratar',checked:true},
+  {id:'c10',label:'Vitiligo no segmentario confirmado',checked:true},
+  {id:'c11',label:'Consentimiento informado del paciente',checked:false}
+];
+
+// ESTUDIOS
+var LAB_ITEMS=[
+  {id:'hemograma',name:'Hemograma completo'},
+  {id:'hepatograma',name:'Hepatograma (TGO, TGP, FAL, bilirrubina)'},
+  {id:'renal',name:'Función renal (urea, creatinina)'},
+  {id:'glucemia',name:'Glucemia'},
+  {id:'lipidos',name:'Lipidograma'}
+];
+var SERO_ITEMS=[
+  {id:'hbsag',name:'HBsAg (Hepatitis B)'},
+  {id:'antihbc',name:'Anti-HBc (Hepatitis B core)'},
+  {id:'hcv',name:'Anti-HCV (Hepatitis C)'},
+  {id:'hiv',name:'HIV (ELISA)'},
+  {id:'vdrl',name:'VDRL (sífilis)'}
+];
+var EXTRA_ITEMS=[
+  {id:'tsh',name:'TSH y T4 libre (descartar tiroiditis autoinmune)'},
+  {id:'antiTPO',name:'Anti-TPO y Anti-Tg (anticuerpos tiroideos)'},
+  {id:'anas',name:'ANAs (descartar autoinmunidad sistémica)'},
+  {id:'antiTG',name:'Anti-transglutaminasa (descartar celiaquía)'},
+  {id:'b12fol',name:'Vitamina B12 y ácido fólico'},
+  {id:'dermatoscopia',name:'Dermatoscopia de lesiones (folículos reserva)'},
+  {id:'woodlamp',name:'Lámpara de Wood (delimitación de lesiones)'},
+  {id:'foto',name:'Fotografía clínica estandarizada (antes de tratamiento)'}
+];
+var VAC_ITEMS=[
+  {id:'influenza',name:'Influenza (anual)'},
+  {id:'covid',name:'COVID-19'},
+  {id:'neumo',name:'Neumococo (VCN13 + VPN23)'},
+  {id:'hepb',name:'Hepatitis B (esquema completo)'},
+  {id:'doble',name:'Doble bacteriana (dTpa)'}
+];
+var ESTADOS=['Realizado','Pendiente','No aplica'];
+var estData={};
+function initEstData(){
+  var all=[].concat(LAB_ITEMS,SERO_ITEMS,EXTRA_ITEMS,VAC_ITEMS);
+  for(var i=0;i<all.length;i++) estData[all[i].id]={estado:'',resultado:''};
+}
+initEstData();
+
+// NAV
+function goTo(n){
+  document.getElementById('step'+cur).classList.remove('active');
+  var ns=document.querySelectorAll('.nav-step');
+  ns[cur].classList.remove('active'); ns[cur].classList.add('done');
+  cur=n;
+  document.getElementById('step'+n).classList.add('active');
+  ns[n].classList.add('active'); ns[n].classList.remove('done');
+  document.getElementById('pf').style.width=((n+1)/TOTAL*100)+'%';
+  if(n===6) buildSummary();
+  updateMobNav();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+var STEP_NAMES=['Médico','Paciente','VASI','DLQI','Clínica','Estudios','Pedido'];
+function updateMobNav(){
+  var dots=document.getElementById('mobDots');
+  var label=document.getElementById('mobLabel');
+  var back=document.getElementById('mobBack');
+  var next=document.getElementById('mobNext');
+  if(!dots) return;
+  dots.innerHTML='';
+  for(var i=0;i<TOTAL;i++){
+    var d=document.createElement('div');
+    d.className='mob-dot'+(i===cur?' active':i<cur?' done':'');
+    dots.appendChild(d);
+  }
+  label.textContent='Paso '+(cur+1)+' de '+TOTAL+' · '+STEP_NAMES[cur];
+  back.style.display=cur===0?'none':'block';
+  next.textContent=cur===TOTAL-1?'Imprimir':'Continuar →';
+}
+function mobGoNext(){if(cur===TOTAL-1){window.print();return;}goTo(cur+1);}
+function mobGoBack(){if(cur>0) goTo(cur-1);}
+
+// VASI
+function buildVASI(){
+  var c=document.getElementById('vasiAreas'); c.innerHTML='';
+  for(var i=0;i<VASI_AREAS.length;i++){
+    var a=VASI_AREAS[i];
+    var val=vasiData[a.id];
+    var contrib=Math.round(val*a.bsa*10)/10;
+    var div=document.createElement('div');
+    div.className='vit-area'+(val>0?' filled':'');
+    var hdr=document.createElement('div'); hdr.className='vit-area-header';
+    var nameDiv=document.createElement('div');
+    nameDiv.innerHTML='<span class="vit-area-name">'+a.emoji+' '+a.name+'</span>';
+    var rightDiv=document.createElement('div');
+    rightDiv.style.cssText='display:flex;align-items:center;gap:0.6rem;';
+    var wSpan=document.createElement('span'); wSpan.className='vit-weight';
+    wSpan.textContent='SC '+(a.bsa*100)+'%';
+    var scSpan=document.createElement('span'); scSpan.className='vit-score';
+    scSpan.id='sc_'+a.id; scSpan.textContent=contrib.toFixed(1);
+    rightDiv.appendChild(wSpan); rightDiv.appendChild(scSpan);
+    hdr.appendChild(nameDiv); hdr.appendChild(rightDiv);
+    var wrap=document.createElement('div'); wrap.className='vit-slider-wrap';
+    var slider=document.createElement('input');
+    slider.type='range'; slider.min=0; slider.max=100; slider.value=val;
+    slider.className='vit-slider';
+    var valDiv=document.createElement('div'); valDiv.className='vit-val';
+    valDiv.id='sv_'+a.id; valDiv.textContent=val+'%';
+    (function(aId,bsa,scId,svId,slEl,divEl){
+      slEl.oninput=function(){
+        var v=parseInt(this.value);
+        vasiData[aId]=v;
+        document.getElementById(svId).textContent=v+'%';
+        document.getElementById(scId).textContent=(Math.round(v*bsa*10)/10).toFixed(1);
+        divEl.className='vit-area'+(v>0?' filled':'');
+        calcVASI();
+      };
+    })(a.id,a.bsa,'sc_'+a.id,'sv_'+a.id,slider,div);
+    wrap.appendChild(slider); wrap.appendChild(valDiv);
+    var descDiv=document.createElement('div');
+    descDiv.style.cssText='font-size:0.72rem;color:var(--muted);margin-top:0.4rem;';
+    descDiv.textContent='0% = sin despigmentación · 50% = mitad del área · 100% = área completamente despigmentada';
+    div.appendChild(hdr); div.appendChild(wrap); div.appendChild(descDiv);
+    c.appendChild(div);
+  }
+}
+function getVASI(){
+  var t=0;
+  for(var i=0;i<VASI_AREAS.length;i++) t+=vasiData[VASI_AREAS[i].id]*VASI_AREAS[i].bsa;
+  return Math.round(t*10)/10;
+}
+function calcVASI(){
+  var t=getVASI();
+  var el=document.getElementById('vasiResult'),tot=document.getElementById('vasiTotal'),lbl=document.getElementById('vasiLbl'),desc=document.getElementById('vasiDesc'),badge=document.getElementById('vasiBadge');
+  tot.textContent=t.toFixed(1); badge.style.display='inline-block';
+  el.className='result-box';
+  // auto-check criterion c1
+  for(var i=0;i<criterios.length;i++){if(criterios[i].id==='c1'){criterios[i].checked=(t>=10);buildCriterios();break;}}
+  if(t===0){el.className='result-box';badge.style.display='none';lbl.textContent='Sin despigmentación registrada';desc.textContent='Ajustá los deslizadores según el examen clínico.';return;}
+  if(t<10){el.classList.add('mild');lbl.textContent='Vitiligo leve (VASI <10)';desc.textContent='Manejo con tratamientos tópicos y fototerapia.';badge.textContent='VASI <10 · Leve';}
+  else if(t<50){el.classList.add('mod');lbl.textContent='Vitiligo moderado (VASI 10–50)';desc.textContent='✅ BSA ≥10% — criterio de indicación para ruxolitinib.';badge.textContent='VASI 10–50 · Moderado · Indica ruxolitinib';}
+  else{el.classList.add('sev');lbl.textContent='Vitiligo extenso (VASI >50)';desc.textContent='✅ Vitiligo extenso — indicación prioritaria de tratamiento biológico/JAKi.';badge.textContent='VASI >50 · Extenso';}
+}
+
+// DLQI
+function getDLQI(){
+  var ok=true;
+  for(var i=0;i<dlqiData.length;i++){if(dlqiData[i]===null){ok=false;break;}}
+  if(!ok) return null;
+  var t=0; for(var i=0;i<dlqiData.length;i++) t+=dlqiData[i];
+  return t;
+}
+function buildDLQI(){
+  var c=document.getElementById('dlqiQs'); c.innerHTML='';
+  var labels=['0 · Nada','1 · Un poco','2 · Bastante','3 · Muchísimo'];
+  for(var i=0;i<DLQI_QS.length;i++){
+    var q=document.createElement('div');
+    q.className='dlqi-q'+(dlqiData[i]!==null?' answered':'');
+    var txt=document.createElement('div'); txt.className='dlqi-q-text';
+    var num=document.createElement('span'); num.className='dlqi-q-num'; num.textContent=(i+1)+'.';
+    txt.appendChild(num); txt.appendChild(document.createTextNode(DLQI_QS[i]));
+    var opts=document.createElement('div'); opts.className='dlqi-opts';
+    for(var v=0;v<4;v++){
+      var btn=document.createElement('button');
+      btn.className='dlqi-btn'+(dlqiData[i]===v?' sel':'');
+      btn.textContent=labels[v];
+      (function(qi,vi){btn.onclick=function(){dlqiData[qi]=vi;buildDLQI();calcDLQI();};})(i,v);
+      opts.appendChild(btn);
+    }
+    q.appendChild(txt); q.appendChild(opts);
+    c.appendChild(q);
+  }
+}
+function calcDLQI(){
+  var t=getDLQI();
+  var el=document.getElementById('dlqiResult'),tot=document.getElementById('dlqiTotal'),lbl=document.getElementById('dlqiLbl'),desc=document.getElementById('dlqiDesc'),badge=document.getElementById('dlqiBadge');
+  el.className='result-box'; badge.style.display='none';
+  if(t===null){tot.textContent='—';lbl.textContent='Completá todas las preguntas';desc.textContent='Respondé las 10 preguntas.';return;}
+  tot.textContent=t; badge.style.display='inline-block';
+  for(var i=0;i<criterios.length;i++){if(criterios[i].id==='c3'){criterios[i].checked=(t>=10);buildCriterios();break;}}
+  if(t<=1){el.classList.add('ctrl');lbl.textContent='Sin efecto';badge.textContent='DLQI 0–1';}
+  else if(t<=5){el.classList.add('mild');lbl.textContent='Pequeño efecto';badge.textContent='DLQI 2–5';}
+  else if(t<=10){el.classList.add('mod');lbl.textContent='Efecto moderado';badge.textContent='DLQI 6–10';}
+  else if(t<=20){el.classList.add('sev');lbl.textContent='Efecto grande';desc.textContent='✅ DLQI ≥ 10. Criterio cumplido.';badge.textContent='DLQI 11–20 · Grande';}
+  else{el.classList.add('sev');lbl.textContent='Efecto extremadamente grande';desc.textContent='✅ DLQI ≥ 10. Criterio cumplido.';badge.textContent='DLQI 21–30 · Extremo';}
+}
+
+// TRATAMIENTOS
+function buildTtos(){
+  var c=document.getElementById('ttoList'); if(!c) return; c.innerHTML='';
+  for(var i=0;i<TTOS.length;i++){
+    var t=TTOS[i];
+    var row=document.createElement('div');
+    row.className='tto-row'+(ttoChecked[t.id]?' checked':'');
+    row.innerHTML='<div class="tto-icon">'+(ttoChecked[t.id]?'✓':'')+'</div>'
+      +'<div class="tto-detail"><div class="tto-name">'+t.name+'</div><div class="tto-note">'+t.note+'</div></div>'
+      +'<div class="tto-res">'+t.res+'</div>';
+    (function(tid,rowEl){
+      rowEl.onclick=function(){
+        ttoChecked[tid]=!ttoChecked[tid];
+        rowEl.className='tto-row'+(ttoChecked[tid]?' checked':'');
+        rowEl.querySelector('.tto-icon').textContent=ttoChecked[tid]?'✓':'';
+      };
+    })(t.id,row);
+    c.appendChild(row);
+  }
+}
+
+// CRITERIOS
+function buildCriterios(){
+  var c=document.getElementById('criteriosGrid'); if(!c) return; c.innerHTML='';
+  for(var i=0;i<criterios.length;i++){
+    var cr=criterios[i];
+    var item=document.createElement('div');
+    item.className='check-item'+(cr.checked?' checked':'');
+    item.innerHTML='<div class="check-box"></div><span>'+cr.label+'</span>';
+    (function(idx,el){
+      el.onclick=function(){criterios[idx].checked=!criterios[idx].checked;el.className='check-item'+(criterios[idx].checked?' checked':'');el.querySelector('.check-box').innerHTML=criterios[idx].checked?'<span style="color:#fff;font-size:0.66rem;font-weight:900;">✓</span>':'';}
+    })(i,item);
+    if(cr.checked) item.querySelector('.check-box').innerHTML='<span style="color:#fff;font-size:0.66rem;font-weight:900;">✓</span>';
+    c.appendChild(item);
+  }
+}
+
+// ESTUDIOS
+function buildEstGrid(items,containerId){
+  var c=document.getElementById(containerId); if(!c) return; c.innerHTML='';
+  for(var i=0;i<items.length;i++){
+    var it=items[i];
+    var row=document.createElement('div'); row.className='est-row';
+    var nm=document.createElement('div'); nm.className='est-name'; nm.textContent=it.name;
+    var sel=document.createElement('select'); sel.className='est-sel';
+    sel.innerHTML='<option value="">Estado</option>';
+    for(var j=0;j<ESTADOS.length;j++){
+      var op=document.createElement('option'); op.value=ESTADOS[j]; op.textContent=ESTADOS[j];
+      if(estData[it.id].estado===ESTADOS[j]) op.selected=true;
+      sel.appendChild(op);
+    }
+    (function(id){sel.onchange=function(){estData[id].estado=this.value;};})(it.id);
+    var inp=document.createElement('input'); inp.className='est-input'; inp.type='text';
+    inp.placeholder='Resultado / fecha'; inp.value=estData[it.id].resultado;
+    (function(id){inp.oninput=function(){estData[id].resultado=this.value;};})(it.id);
+    row.appendChild(nm); row.appendChild(sel); row.appendChild(inp);
+    c.appendChild(row);
+  }
+}
+function buildEstGridAll(){
+  buildEstGrid(LAB_ITEMS,'labGrid');
+  buildEstGrid(SERO_ITEMS,'seroGrid');
+  buildEstGrid(EXTRA_ITEMS,'extraGrid');
+  buildEstGrid(VAC_ITEMS,'vacGrid');
+}
+function buildEstSection(){
+  var all=[
+    {title:'Laboratorio',items:LAB_ITEMS},
+    {title:'Serologías',items:SERO_ITEMS},
+    {title:'Estudios específicos',items:EXTRA_ITEMS},
+    {title:'Vacunas',items:VAC_ITEMS}
+  ];
+  var h='';
+  all.forEach(function(grp){
+    var done=grp.items.filter(function(it){return estData[it.id].estado==='Realizado';});
+    var pend=grp.items.filter(function(it){return estData[it.id].estado==='Pendiente';});
+    if(done.length||pend.length){
+      h+='<div style="margin-bottom:0.5rem;"><strong style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;">'+grp.title+'</strong>';
+      grp.items.forEach(function(it){
+        if(estData[it.id].estado){
+          var col=estData[it.id].estado==='Realizado'?'#1e8c5a':estData[it.id].estado==='Pendiente'?'#e07b2a':'var(--muted)';
+          h+='<div style="display:flex;gap:0.5rem;font-size:0.78rem;padding:0.18rem 0;"><span style="color:'+col+';font-weight:700;min-width:70px;">'+estData[it.id].estado+'</span><span>'+it.name+(estData[it.id].resultado?' — <em>'+estData[it.id].resultado+'</em>':'')+'</span></div>';
+        }
+      });
+      h+='</div>';
+    }
+  });
+  return h||'<p style="font-size:0.8rem;color:var(--muted);">Sin estudios registrados.</p>';
+}
+
+// SUMMARY
+function gv(id){var el=document.getElementById(id);if(!el) return '—';return el.value.trim()||'—';}
+function buildSummary(){
+  var vasi=getVASI();
+  var dlqi=getDLQI();
+  var vCol='var(--muted)',vLbl='Sin calcular';
+  if(vasi>0){if(vasi<10){vCol='#d4ac10';vLbl='Leve (<10)';}else if(vasi<50){vCol='#e07b2a';vLbl='Moderado (10–50)';}else{vCol='#c0392b';vLbl='Extenso (>50)';}}
+  var cttos=TTOS.filter(function(t){return ttoChecked[t.id];});
+  var edad=gv('pac_edad')!=='—'?gv('pac_edad')+' años':'—';
+
+  var logoSVG='<svg width="30" height="30" viewBox="0 0 100 100" fill="none"><path d="M55 15 Q70 15 75 30 Q80 45 72 60 Q65 72 55 75 Q45 78 38 70" stroke="url(#rg2)" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="68" cy="58" r="14" stroke="url(#lg2)" stroke-width="3.5" fill="rgba(196,146,122,0.15)"/><line x1="78" y1="68" x2="88" y2="80" stroke="url(#lg2)" stroke-width="4" stroke-linecap="round"/><circle cx="62" cy="54" r="2.8" fill="#c4927a" opacity="0.8"/><defs><linearGradient id="rg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c4927a"/><stop offset="100%" stop-color="#7a7a9a"/></linearGradient><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7a7a9a"/><stop offset="100%" stop-color="#c4927a"/></linearGradient></defs></svg>';
+
+  var ttoH='';
+  if(cttos.length){cttos.forEach(function(t){ttoH+='<div style="display:flex;align-items:flex-start;gap:0.45rem;padding:0.3rem 0;border-bottom:1px solid var(--border);font-size:0.79rem;"><span style="color:var(--rose);font-weight:700;">✓</span><div><strong>'+t.name+'</strong> <span style="color:var(--muted);font-size:0.73rem;">· '+t.note+'</span><br><span style="font-size:0.7rem;color:#c0392b;font-weight:700;">'+t.res+'</span></div></div>';});}
+  else ttoH='<p style="font-size:0.8rem;color:var(--muted);">No se documentaron tratamientos previos.</p>';
+
+  var critH='<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.36rem;">';
+  criterios.forEach(function(c){critH+='<div style="display:flex;align-items:center;gap:0.42rem;font-size:0.77rem;padding:0.28rem 0.5rem;border-radius:6px;background:'+(c.checked?'var(--rose-l)':'var(--cream)')+';border:1px solid '+(c.checked?'var(--rose-m)':'var(--border)')+'"><span style="color:'+(c.checked?'var(--rose)':'var(--muted)')+';font-weight:700;">'+(c.checked?'✓':'○')+'</span><span>'+c.label+'</span></div>';});
+  critH+='</div>';
+
+  var html='<div class="sum-hd">'
+    +'<div style="display:flex;align-items:center;gap:0.85rem;">'
+    +'<div style="width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--rose-l),var(--lav-l));border:1.5px solid var(--rose-m);display:flex;align-items:center;justify-content:center;flex-shrink:0;">'+logoSVG+'</div>'
+    +'<div><div style="font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:-0.02em;">Derm<em style="font-style:italic;background:linear-gradient(135deg,#e8b4a0,#b4b4d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">IA</em></div>'
+    +'<div style="font-size:0.57rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.38);">Dermatología + Inteligencia Artificial</div></div></div>'
+    +'<div><h2>Solicitud de Medicación de Alto Costo</h2><p>Vitiligo · Tratamiento con Ruxolitinib (JAK1/JAK2 inhibidor tópico)</p></div>'
+    +'<div class="sum-tag">Ruxolitinib 1.5%</div></div>'
+    +'<div class="sum-body">'
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Médico solicitante</div>'
+    +'<div class="sum-row"><div class="sum-key">Nombre</div><div class="sum-val">'+gv('med_nombre')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Especialidad</div><div class="sum-val">'+gv('med_esp')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Matrícula</div><div class="sum-val">'+gv('med_mat')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Institución</div><div class="sum-val">'+gv('med_inst')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Contacto</div><div class="sum-val">'+gv('med_tel')+' · '+gv('med_mail')+'</div></div></div>'
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Paciente</div>'
+    +'<div class="sum-row"><div class="sum-key">Nombre</div><div class="sum-val">'+gv('pac_nombre')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">DNI</div><div class="sum-val">'+gv('pac_dni')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Edad / Sexo</div><div class="sum-val">'+edad+' · '+gv('pac_sexo')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Obra social / Plan</div><div class="sum-val">'+gv('pac_os')+' · '+gv('pac_plan')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">N° afiliado</div><div class="sum-val">'+gv('pac_afil')+'</div></div>'
+    +(gv('pac_comor')!=='—'?'<div class="sum-row"><div class="sum-key">Comorbilidades</div><div class="sum-val">'+gv('pac_comor')+'</div></div>':'')
+    +'</div>'
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Diagnóstico · CIE-10: L80</div>'
+    +'<div class="sum-row"><div class="sum-key">Diagnóstico</div><div class="sum-val">Vitiligo — '+gv('cli_tipo')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Evolución</div><div class="sum-val">'+gv('pac_evol')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Actividad</div><div class="sum-val">'+gv('cli_actividad')+'</div></div>'
+    +(gv('cli_loc')!=='—'?'<div class="sum-row"><div class="sum-key">Localización especial</div><div class="sum-val">'+gv('cli_loc')+'</div></div>':'')
+    +'</div>'
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Score VASI</div>'
+    +'<div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:0.8rem;">'
+    +'<div class="big-score" style="color:'+vCol+'">'+vasi.toFixed(1)+'</div>'
+    +'<div><div style="font-weight:700;font-size:0.95rem;color:'+vCol+';">'+vLbl+'</div>'
+    +'<div style="font-size:0.77rem;color:var(--muted);margin-top:0.1rem;">Puntaje 0–100 · VASI ≥10% = indicación ruxolitinib</div></div></div>'
+    +'<table style="width:100%;border-collapse:collapse;font-size:0.75rem;border:1px solid var(--border);border-radius:8px;overflow:hidden;">'
+    +'<thead><tr style="background:var(--ink2);color:#fff;"><th style="padding:0.34rem 0.6rem;text-align:left;">Región</th><th style="padding:0.34rem;text-align:center;">% despigemntación</th><th style="padding:0.34rem;text-align:center;">SC</th><th style="padding:0.34rem 0.6rem;text-align:center;">Contribución</th></tr></thead><tbody>';
+  for(var i=0;i<VASI_AREAS.length;i++){
+    var a=VASI_AREAS[i];
+    var contrib=Math.round(vasiData[a.id]*a.bsa*10)/10;
+    html+='<tr style="background:'+(i%2?'var(--cream)':'#fff')+'">'
+      +'<td style="padding:0.3rem 0.6rem;border-top:1px solid var(--border);font-weight:700;">'+a.name+'</td>'
+      +'<td style="text-align:center;border-top:1px solid var(--border);">'+vasiData[a.id]+'%</td>'
+      +'<td style="text-align:center;border-top:1px solid var(--border);">'+(a.bsa*100)+'%</td>'
+      +'<td style="text-align:center;font-weight:700;border-top:1px solid var(--border);">'+contrib.toFixed(1)+'</td></tr>';
+  }
+  html+='<tr style="background:var(--ink);color:#fff;"><td colspan="3" style="padding:0.4rem 0.6rem;font-weight:700;text-align:right;">VASI TOTAL</td><td style="text-align:center;font-weight:800;font-size:1.05rem;">'+vasi.toFixed(1)+'</td></tr>';
+  html+='</tbody></table></div>'
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Score DLQI</div>'
+    +'<div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;">'
+    +'<div class="big-score" style="color:'+(dlqi!==null?(dlqi<=1?'#1e8c5a':dlqi<=10?'#e07b2a':'#c0392b'):'var(--muted)')+'">'+(dlqi!==null?dlqi:'—')+'</div>'
+    +'<div><div style="font-weight:700;font-size:0.95rem;color:'+(dlqi!==null?(dlqi<=1?'#1e8c5a':dlqi<=10?'#e07b2a':'#c0392b'):'var(--muted)')+';">'+(dlqi!==null?(dlqi<=1?'Sin efecto':dlqi<=10?'Moderado':'Grande/Extremo'):'Sin calcular')+'</div>'
+    +'<div style="font-size:0.77rem;color:var(--muted);margin-top:0.1rem;">Puntaje sobre 30</div></div></div></div>'
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Medicación solicitada</div>'
+    +'<div class="rx-hl">'
+    +'<div class="rx-it"><label>Droga</label><div class="rv">Ruxolitinib<small>JAK1/JAK2 inhibidor tópico</small></div></div>'
+    +'<div class="rx-it"><label>Marca</label><div class="rv">Opzelura®<small>Crema 1.5% — tubo 60 g</small></div></div>'
+    +'<div class="rx-it"><label>Dosis</label><div class="rv">2 × día<small>Fina capa en lesiones</small></div></div>'
+    +'<div class="rx-it"><label>Vía</label><div class="rv">Tópica<small>No superar 10% SC/aplicación</small></div></div>'
+    +'<div class="rx-it"><label>Duración inicial</label><div class="rv">24 semanas<small>Evaluar respuesta (esp. facial)</small></div></div>'
+    +'<div class="rx-it"><label>Indicación aprobada</label><div class="rv">Vitiligo NS<small>≥12 años · FDA/EMA aprobado</small></div></div>'
+    +'</div>'
+    +'<div style="background:var(--cream2);border-radius:8px;padding:0.8rem 1rem;font-size:0.8rem;line-height:1.7;color:var(--ink2);margin-top:0.75rem;">'
+    +'<strong>Esquema:</strong> Aplicar fina capa de ruxolitinib crema 1.5% en las lesiones de vitiligo 2 veces al día. No aplicar en mucosas. No superar 10% de SC por aplicación sin monitoreo sistémico.<br>'
+    +'<strong>Monitoreo:</strong> Evaluar respuesta facial a las 24 semanas. La repigmentación corporal puede requerir hasta 52 semanas de tratamiento continuado. Dermatoscopia de control recomendada.'
+    +'</div>'
+    +'<div style="margin-top:0.6rem;font-size:0.77rem;color:#c0392b;background:#fff0f0;border:1px solid #fcc;border-radius:7px;padding:0.55rem 0.75rem;">⚠️ Vigilar infecciones locales (foliculitis, herpes simplex). Evitar vacunas vivas durante tratamiento. Contraindicado en embarazo/lactancia sin evaluación riesgo-beneficio.</div>'
+    +'</div>'
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Tratamientos previos documentados</div>'+ttoH
+    +(gv('cli_otros')!=='—'?'<div style="margin-top:0.5rem;font-size:0.79rem;color:var(--muted);"><strong style="color:var(--ink)">Otros:</strong> '+gv('cli_otros')+'</div>':'')
+    +'</div>'
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Criterios de indicación</div>'+critH+'</div>'
+
+    +(gv('cli_obs')!=='—'?'<div class="sum-sec"><div class="sum-sec-title">Observaciones</div><p style="font-size:0.82rem;line-height:1.6;color:var(--ink2);">'+gv('cli_obs')+'</p></div>':'')
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Estudios previos al tratamiento</div>'+buildEstSection()+'</div>'
+
+    +(gv('est_obs')!=='—'?'<div class="sum-sec"><div class="sum-sec-title">Observaciones sobre estudios</div><p style="font-size:0.82rem;line-height:1.6;color:var(--ink2);">'+gv('est_obs')+'</p></div>':'')
+
+    +'<div class="sum-sec"><div class="sum-sec-title">Firmas</div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:0.8rem;">'
+    +'<div><div style="height:52px;"></div><div style="border-top:1.5px solid var(--ink);padding-top:0.32rem;">'
+    +'<div style="font-size:0.74rem;color:var(--muted);">Firma y sello del médico solicitante</div>'
+    +'<div style="font-size:0.8rem;font-weight:700;margin-top:0.14rem;">'+gv('med_nombre')+'</div>'
+    +'<div style="font-size:0.72rem;color:var(--muted);">'+gv('med_mat')+' · '+gv('med_esp')+'</div></div></div>'
+    +'<div><div style="height:52px;"></div><div style="border-top:1.5px solid var(--ink);padding-top:0.32rem;">'
+    +'<div style="font-size:0.74rem;color:var(--muted);">Fecha y lugar</div>'
+    +'<div style="font-size:0.8rem;font-weight:700;margin-top:0.14rem;">_______________________</div>'
+    +'</div></div></div></div>'
+
+    +'</div></div>';
+  document.getElementById('summaryOut').innerHTML=html;
+}
+
+function resetAll(){
+  if(!confirm('Nuevo pedido? Se borrarán todos los datos.')) return;
+  document.querySelectorAll('input,textarea').forEach(function(el){el.value='';});
+  document.querySelectorAll('select').forEach(function(el){el.selectedIndex=0;});
+  VASI_AREAS.forEach(function(a){vasiData[a.id]=0;});
+  for(var i=0;i<dlqiData.length;i++) dlqiData[i]=null;
+  ttoChecked={t1:true,t2:true,t3:true};
+  criterios.forEach(function(c){c.checked=['c4','c6','c9','c10'].indexOf(c.id)>=0;});
+  initEstData();
+  buildVASI(); buildDLQI(); buildTtos(); buildCriterios(); buildEstGridAll();
+  goTo(0);
+}
+
+buildVASI(); buildDLQI(); buildTtos(); buildCriterios(); buildEstGridAll();
+updateMobNav();
+</script>
+</body>
+</html>

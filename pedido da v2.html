@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DermIA · Dermatitis Atópica · Biológicos</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#c4927a;--rose-l:#f5ede8;--rose-m:#e8c4b4;
+  --lav:#7a7a9a;--lav-l:#eeeef8;--lav-m:#b4b4cc;
+  --ink:#2a3040;--ink2:#3a4258;
+  --cream:#faf8f5;--cream2:#f2ede8;
+  --border:#e4ddd6;--muted:#9090a8;
+  --card:#fff;--bg:#f5f1ec;--radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+.nav{background:#fff;padding:0 1.8rem;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(42,48,64,0.08);border-bottom:1px solid var(--border);}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;}
+.nav-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:linear-gradient(135deg,var(--rose-l),var(--lav-l));border:1.5px solid var(--rose-m);}
+.nav-wordmark{font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;color:var(--ink);}
+.nav-wordmark .ia{background:linear-gradient(135deg,var(--rose),var(--lav));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;}
+.nav-sub{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:0.1rem;}
+.nav-divider{width:1px;height:28px;background:var(--border);margin:0 0.5rem;}
+.nav-steps{display:flex;gap:0.2rem;}
+.nav-step{padding:0.24rem 0.55rem;border-radius:20px;font-size:0.65rem;font-weight:600;cursor:pointer;color:var(--muted);transition:all 0.2s;border:1.5px solid transparent;}
+.nav-step.active{background:var(--rose-l);color:var(--rose);border-color:var(--rose-m);}
+.nav-step.done{color:var(--lav);border-color:var(--lav-l);}
+@media(max-width:700px){.nav-steps,.nav-divider{display:none;}.nav{padding:0 1rem;}}
+.mob-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:0.65rem 1rem;z-index:200;box-shadow:0 -4px 16px rgba(42,48,64,0.1);}
+.mob-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;max-width:880px;margin:0 auto;}
+.mob-step-info{display:flex;flex-direction:column;align-items:center;flex:1;}
+.mob-step-dots{display:flex;gap:0.25rem;margin-bottom:0.18rem;}
+.mob-dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:all 0.2s;}
+.mob-dot.active{background:var(--rose);width:18px;border-radius:4px;}
+.mob-dot.done{background:var(--lav);}
+.mob-step-label{font-size:0.62rem;color:var(--muted);font-weight:600;letter-spacing:0.05em;}
+.mob-btn{padding:0.55rem 1.1rem;border-radius:8px;font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;border:none;white-space:nowrap;}
+.mob-btn-p{background:linear-gradient(135deg,var(--rose),var(--lav));color:#fff;}
+.mob-btn-g{background:var(--cream2);color:var(--muted);border:1.5px solid var(--border);}
+@media(max-width:700px){.mob-nav{display:block;}.wrap{padding:2rem 1rem 6rem;}}
+.wrap{max-width:880px;margin:0 auto;padding:2rem 1.2rem 4rem;}
+.step{display:none;}
+.step.active{display:block;animation:up 0.3s ease;}
+@keyframes up{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.prog{height:3px;background:var(--border);border-radius:2px;margin-bottom:2rem;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--lav));border-radius:2px;transition:width 0.4s;}
+.step-ey{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:0.3rem;}
+.step-ti{font-family:'Lora',serif;font-size:1.85rem;color:var(--ink);line-height:1.15;margin-bottom:0.4rem;}
+.step-de{font-size:0.84rem;color:var(--muted);max-width:540px;line-height:1.65;margin-bottom:1.8rem;}
+.card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:1.4rem;margin-bottom:1rem;box-shadow:0 2px 10px rgba(42,48,64,0.05);}
+.card-title{font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+.card-title::before{content:'';display:inline-block;width:3px;height:14px;background:linear-gradient(180deg,var(--rose),var(--lav));border-radius:2px;}
+.fg{display:grid;gap:0.85rem;}
+.fg2{grid-template-columns:1fr 1fr;}
+.fg3{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:560px){.fg2,.fg3{grid-template-columns:1fr 1fr;}}
+@media(max-width:380px){.fg2,.fg3{grid-template-columns:1fr;}}
+.field{display:flex;flex-direction:column;gap:0.3rem;}
+.field label{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.field input,.field select,.field textarea{background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:0.58rem 0.85rem;font-family:'Raleway',sans-serif;font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(196,146,122,0.12);background:#fff;}
+.field textarea{resize:vertical;min-height:66px;line-height:1.55;}
+.field input[readonly]{background:var(--rose-l);color:var(--rose);font-weight:700;cursor:default;border-color:var(--rose-m);}
+.bmi-badge{display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.4rem;padding:0.4rem 0.8rem;border-radius:8px;font-size:0.78rem;font-weight:700;}
+.info-box{background:linear-gradient(135deg,var(--rose-l),var(--lav-l));border:1px solid var(--rose-m);border-radius:var(--radius);padding:0.9rem 1.1rem;font-size:0.81rem;color:var(--ink2);line-height:1.65;margin-bottom:1rem;}
+.info-box strong{color:var(--rose);}
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+@media(max-width:560px){.bio-grid{grid-template-columns:1fr;}}
+.bio-card{border:2px solid var(--border);border-radius:var(--radius);padding:1.1rem;cursor:pointer;transition:all 0.2s;background:var(--cream);position:relative;}
+.bio-card:hover{border-color:var(--rose-m);background:var(--rose-l);}
+.bio-card.selected{border-color:var(--rose);background:var(--rose-l);box-shadow:0 4px 16px rgba(196,146,122,0.2);}
+.bio-card.selected::after{content:'✓';position:absolute;top:0.7rem;right:0.85rem;font-size:0.9rem;color:var(--rose);font-weight:900;}
+.bio-name{font-weight:800;font-size:0.95rem;color:var(--ink);margin-bottom:0.1rem;}
+.bio-brand{font-size:0.72rem;color:var(--muted);font-style:italic;margin-bottom:0.5rem;}
+.bio-mech{font-size:0.7rem;font-weight:700;padding:0.18rem 0.55rem;border-radius:20px;display:inline-block;margin-bottom:0.5rem;}
+.mech-il4{background:#e8f8fd;color:#1a7a9a;}
+.mech-il13{background:#fde8fd;color:#8a1a9a;}
+.mech-jak{background:#fdf5e8;color:#9a6a10;}
+.bio-tags{display:flex;gap:0.3rem;flex-wrap:wrap;margin-bottom:0.55rem;}
+.bio-tag{font-size:0.65rem;font-weight:600;padding:0.14rem 0.45rem;border-radius:10px;background:var(--lav-l);color:var(--lav);}
+.bio-dose-preview{font-size:0.75rem;color:var(--ink2);line-height:1.5;}
+.bio-dose-preview strong{color:var(--rose);}
+.bio-info-box{background:var(--ink);border-radius:var(--radius);padding:1.3rem 1.5rem;color:#fff;margin-bottom:1rem;}
+.bio-info-name{font-family:'Lora',serif;font-size:1.3rem;font-weight:600;margin-bottom:0.12rem;}
+.bio-info-brand{font-size:0.75rem;color:rgba(255,255,255,0.45);font-style:italic;margin-bottom:1rem;}
+.bio-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+@media(max-width:500px){.bio-info-grid{grid-template-columns:1fr 1fr;}}
+.bio-info-item label{display:block;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.18rem;font-weight:600;}
+.bio-info-item .biv{font-family:'Lora',serif;font-size:1rem;color:#fff;}
+.bio-info-item .biv small{font-family:'Raleway',sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.48);display:block;margin-top:0.05rem;}
+.bio-scheme{background:rgba(255,255,255,0.07);border-radius:8px;padding:0.9rem 1rem;margin-top:1rem;font-size:0.8rem;line-height:1.7;color:rgba(255,255,255,0.82);}
+.bio-scheme strong{color:#e8c4b4;}
+.bio-warning{background:rgba(196,146,122,0.18);border:1px solid rgba(196,146,122,0.35);border-radius:8px;padding:0.65rem 0.9rem;margin-top:0.75rem;font-size:0.77rem;color:#e8c4b4;line-height:1.5;}
+.scores-box{background:linear-gradient(135deg,var(--rose-l),var(--lav-l));border:1px solid var(--rose-m);border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+.score-item label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:0.15rem;}
+.score-item .sv{font-family:'Lora',serif;font-size:1.6rem;font-weight:400;}
+.score-item .sl{font-size:0.72rem;font-weight:700;color:var(--rose);}
+.result-box{border-radius:var(--radius);padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1.2rem;border:2px solid var(--border);background:var(--cream);transition:all 0.35s;margin-top:0.8rem;}
+.result-box.ctrl{background:#edf7f2;border-color:#6dbf94;}
+.result-box.mild{background:#fefce8;border-color:#d4b820;}
+.result-box.mod{background:#fef3ee;border-color:#e07b2a;}
+.result-box.sev{background:#fef0f0;border-color:#c0392b;}
+.res-num{font-family:'Lora',serif;font-size:2.8rem;line-height:1;min-width:60px;text-align:center;color:var(--muted);}
+.ctrl .res-num{color:#1e8c5a;}.mild .res-num{color:#d4ac10;}.mod .res-num{color:#e07b2a;}.sev .res-num{color:#c0392b;}
+.res-lbl{font-size:0.95rem;font-weight:700;color:var(--muted);}
+.ctrl .res-lbl{color:#1e8c5a;}.mild .res-lbl{color:#d4ac10;}.mod .res-lbl{color:#e07b2a;}.sev .res-lbl{color:#c0392b;}
+.res-desc{font-size:0.79rem;color:var(--muted);line-height:1.5;margin-top:0.18rem;}
+.res-badge{display:inline-block;font-size:0.68rem;font-weight:700;padding:0.18rem 0.6rem;border-radius:20px;margin-top:0.28rem;}
+.ctrl .res-badge{background:#d1fae5;color:#065f46;}.mild .res-badge{background:#fef9c3;color:#713f12;}
+.mod .res-badge{background:#ffedd5;color:#9a3412;}.sev .res-badge{background:#fee2e2;color:#991b1b;}
+.ref-table{margin-top:0.9rem;border:1px solid var(--border);border-radius:9px;overflow:hidden;}
+.ref-table table{width:100%;border-collapse:collapse;font-size:0.77rem;}
+.ref-table th{background:var(--ink2);color:#fff;padding:0.36rem 0.75rem;text-align:left;font-weight:600;}
+.ref-table td{padding:0.33rem 0.75rem;border-top:1px solid var(--border);}
+.ref-table tr:nth-child(even) td{background:var(--cream);}
+.dlqi-q{background:var(--cream);border:1.5px solid var(--border);border-radius:9px;padding:0.75rem 0.9rem;margin-bottom:0.55rem;transition:border-color 0.2s;}
+.dlqi-q.answered{border-color:var(--rose-m);background:var(--rose-l);}
+.dlqi-q-text{font-size:0.81rem;font-weight:600;color:var(--ink);margin-bottom:0.45rem;}
+.dlqi-q-num{color:var(--rose);font-weight:800;margin-right:0.35rem;}
+.dlqi-opts{display:flex;gap:0.3rem;flex-wrap:wrap;}
+.dlqi-btn{padding:0.26rem 0.6rem;border-radius:20px;border:1.5px solid var(--border);background:#fff;color:var(--muted);font-size:0.69rem;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Raleway',sans-serif;}
+.dlqi-btn.sel{background:linear-gradient(135deg,var(--rose),var(--lav));border-color:transparent;color:#fff;}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.42rem;}
+@media(max-width:500px){.check-grid{grid-template-columns:1fr;}}
+.check-item{display:flex;align-items:center;gap:0.5rem;padding:0.42rem 0.65rem;border-radius:8px;border:1.5px solid var(--border);background:var(--cream);cursor:pointer;font-size:0.8rem;line-height:1.35;transition:all 0.15s;user-select:none;}
+.check-item:hover,.check-item.checked{border-color:var(--rose-m);background:var(--rose-l);}
+.check-box{width:16px;height:16px;flex-shrink:0;border:2px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;background:#fff;transition:all 0.15s;}
+.check-item.checked .check-box{background:linear-gradient(135deg,var(--rose),var(--lav));border-color:transparent;}
+.check-item.checked .check-box::after{content:'✓';color:#fff;font-size:0.66rem;font-weight:900;}
+.tto-row{display:flex;align-items:center;gap:0.5rem;padding:0.52rem 0.75rem;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;font-size:0.81rem;cursor:pointer;transition:all 0.15s;user-select:none;margin-bottom:0.42rem;}
+.tto-row:hover,.tto-row.checked{border-color:var(--rose-m);background:var(--rose-l);}
+.tto-icon{width:16px;height:16px;flex-shrink:0;border:2px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;background:#fff;font-size:0.66rem;font-weight:900;transition:all 0.15s;}
+.tto-row.checked .tto-icon{background:linear-gradient(135deg,var(--rose),var(--lav));border-color:transparent;color:#fff;}
+.tto-detail{flex:1;}.tto-name{font-weight:700;color:var(--ink);}
+.tto-note{font-size:0.71rem;color:var(--muted);margin-top:0.06rem;}
+.tto-res{font-size:0.67rem;font-weight:700;padding:0.12rem 0.42rem;border-radius:10px;background:#fee2e2;color:#c0392b;white-space:nowrap;}
+.rx-hl{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:var(--radius);padding:1.2rem 1.4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0.85rem;margin-bottom:0.75rem;}
+@media(max-width:500px){.rx-hl{grid-template-columns:1fr 1fr;}}
+.rx-it label{display:block;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.42);margin-bottom:0.18rem;font-weight:600;}
+.rx-it .rv{font-family:'Lora',serif;font-size:1rem;color:#fff;}
+.rx-it .rv small{font-family:'Raleway',sans-serif;font-size:0.68rem;color:rgba(255,255,255,0.48);display:block;margin-top:0.05rem;}
+.sum-hd{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:var(--radius) var(--radius) 0 0;padding:1.5rem 1.8rem;color:#fff;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.sum-hd h2{font-family:'Lora',serif;font-size:1.3rem;font-weight:600;}
+.sum-hd p{font-size:0.78rem;color:rgba(255,255,255,0.48);margin-top:0.18rem;}
+.sum-tag{background:linear-gradient(135deg,var(--rose),var(--lav));color:#fff;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.26rem 0.75rem;border-radius:20px;white-space:nowrap;align-self:flex-start;}
+.sum-body{border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius) var(--radius);overflow:hidden;}
+.sum-sec{padding:1.1rem 1.4rem;border-bottom:1px solid var(--border);}
+.sum-sec:last-child{border-bottom:none;}
+.sum-sec-title{font-size:0.67rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.72rem;}
+.sum-row{display:flex;gap:0.75rem;margin-bottom:0.32rem;flex-wrap:wrap;}
+.sum-key{font-size:0.75rem;color:var(--muted);min-width:130px;flex-shrink:0;}
+.sum-val{font-size:0.8rem;font-weight:600;color:var(--ink);}
+.big-score{font-family:'Lora',serif;font-size:2.4rem;font-weight:400;}
+.btn-row{display:flex;gap:0.7rem;margin-top:1.4rem;flex-wrap:wrap;}
+@media(max-width:500px){.btn-row{flex-direction:column;}.btn{width:100%;justify-content:center;font-size:1rem;padding:0.85rem 1.5rem;}}
+.btn{padding:0.62rem 1.5rem;border-radius:8px;font-family:'Raleway',sans-serif;font-size:0.84rem;font-weight:700;cursor:pointer;border:none;transition:all 0.2s;display:flex;align-items:center;gap:0.4rem;}
+.btn-p{background:linear-gradient(135deg,var(--rose),var(--lav));color:#fff;box-shadow:0 3px 10px rgba(196,146,122,0.3);}
+.btn-p:hover{transform:translateY(-1px);}
+.btn-g{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+.btn-g:hover{border-color:var(--rose);color:var(--rose);background:var(--rose-l);}
+.btn-pr{background:var(--ink);color:#fff;}
+.btn-d{background:var(--cream2);color:var(--muted);border:1.5px solid var(--border);}
+.warn-box{background:linear-gradient(135deg,#fff8f5,#f5f5ff);border:1px solid var(--rose-m);border-radius:9px;padding:0.8rem 1rem;font-size:0.79rem;color:var(--ink2);margin-top:0.8rem;line-height:1.55;}
+.warn-box strong{color:var(--rose);}
+@media print{
+  .nav,.prog,.btn-row,.step-ey,.step-ti,.step-de,.warn-box,.mob-nav{display:none!important;}
+  .wrap{padding:0;max-width:100%;}
+  .step{display:none!important;}
+  .step#step8{display:block!important;}
+  body{background:#fff;}
+  .card{box-shadow:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-icon">
+      <svg width="22" height="22" viewBox="0 0 100 100" fill="none">
+        <path d="M55 15 Q70 15 75 30 Q80 45 72 60 Q65 72 55 75 Q45 78 38 70" stroke="url(#rg)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="68" cy="58" r="14" stroke="url(#lg)" stroke-width="3.5" fill="rgba(196,146,122,0.1)"/>
+        <line x1="78" y1="68" x2="88" y2="80" stroke="url(#lg)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="62" cy="54" r="2.5" fill="#c4927a" opacity="0.7"/>
+        <circle cx="70" cy="52" r="2" fill="#7a7a9a" opacity="0.7"/>
+        <defs>
+          <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c4927a"/><stop offset="100%" stop-color="#7a7a9a"/></linearGradient>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7a7a9a"/><stop offset="100%" stop-color="#c4927a"/></linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div>
+      <div class="nav-wordmark">Derm<span class="ia">IA</span></div>
+      <div class="nav-sub">Dermatitis Atópica · Biológicos</div>
+    </div>
+  </div>
+  <div class="nav-divider"></div>
+  <div class="nav-steps">
+    <div class="nav-step active" onclick="goTo(0)">1. Médico</div>
+    <div class="nav-step" onclick="goTo(1)">2. Paciente</div>
+    <div class="nav-step" onclick="goTo(2)">3. EASI</div>
+    <div class="nav-step" onclick="goTo(3)">4. SCORAD</div>
+    <div class="nav-step" onclick="goTo(4)">5. DLQI</div>
+    <div class="nav-step" onclick="goTo(5)">6. Biológico</div>
+    <div class="nav-step" onclick="goTo(6)">7. Clínica</div>
+    <div class="nav-step" onclick="goTo(7)">8. Estudios</div>
+    <div class="nav-step" onclick="goTo(8)">9. Pedido</div>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <div class="mob-nav-inner">
+    <button class="mob-btn mob-btn-g" id="mobBack" onclick="mobGoBack()" style="display:none">← Atrás</button>
+    <div class="mob-step-info">
+      <div class="mob-step-dots" id="mobDots"></div>
+      <div class="mob-step-label" id="mobLabel">Paso 1 de 9</div>
+    </div>
+    <button class="mob-btn mob-btn-p" id="mobNext" onclick="mobGoNext()">Continuar →</button>
+  </div>
+</div>
+<div class="wrap">
+<div class="prog"><div class="prog-fill" id="pf" style="width:11.1%"></div></div>
+
+<div class="step active" id="step0">
+  <div class="step-ey">Paso 1 de 9</div><div class="step-ti">Datos del médico</div>
+  <div class="step-de">Esta información aparecerá en el encabezado del pedido para la obra social.</div>
+  <div class="card"><div class="card-title">Médico solicitante</div>
+    <div class="fg fg2">
+      <div class="field"><label>Nombre y apellido *</label><input id="med_nombre" placeholder="Dr/Dra. Apellido, Nombre"></div>
+      <div class="field"><label>Especialidad</label><input id="med_esp" placeholder="Dermatología"></div>
+      <div class="field"><label>Matrícula *</label><input id="med_mat" placeholder="MP / MN …"></div>
+      <div class="field"><label>Teléfono</label><input id="med_tel" placeholder="+54 9 …"></div>
+      <div class="field"><label>Mail</label><input id="med_mail" placeholder="correo@ejemplo.com"></div>
+      <div class="field"><label>Institución</label><input id="med_inst" placeholder="Hospital / Consultorio"></div>
+      <div class="field" style="grid-column:1/-1"><label>Domicilio profesional</label><input id="med_dir" placeholder="Calle, N°, Ciudad, Provincia"></div>
+    </div>
+  </div>
+  <div class="btn-row"><button class="btn btn-p" onclick="goTo(1)">Continuar →</button></div>
+</div>
+
+<div class="step" id="step1">
+  <div class="step-ey">Paso 2 de 9</div><div class="step-ti">Datos del paciente</div>
+  <div class="step-de">Completá los datos del afiliado. El IMC se calcula automáticamente.</div>
+  <div class="card"><div class="card-title">Identificación</div>
+    <div class="fg fg2">
+      <div class="field"><label>Apellido y nombre *</label><input id="pac_nombre" placeholder="Apellido, Nombre"></div>
+      <div class="field"><label>DNI *</label><input id="pac_dni" placeholder="12.345.678"></div>
+      <div class="field"><label>Fecha de nacimiento</label><input id="pac_fnac" type="date" onchange="calcEdad()"></div>
+      <div class="field"><label>Edad</label><input id="pac_edad" type="number" placeholder="45" min="1" max="120" readonly></div>
+      <div class="field"><label>Sexo</label><select id="pac_sexo"><option value="">— Seleccionar —</option><option>Femenino</option><option>Masculino</option><option>No binario / Otro</option></select></div>
+      <div class="field"><label>N° de afiliado</label><input id="pac_afil" placeholder="Nro. afiliado OS"></div>
+      <div class="field"><label>Plan</label><input id="pac_plan" placeholder="Nombre del plan"></div>
+      <div class="field"><label>Obra social / Prepaga</label><input id="pac_os" placeholder="OSDE, PAMI, Swiss Medical…"></div>
+      <div class="field"><label>Teléfono</label><input id="pac_tel" placeholder="+54 9 …"></div>
+      <div class="field" style="grid-column:1/-1"><label>Domicilio</label><input id="pac_dir" placeholder="Calle, N°, Ciudad, Provincia"></div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Datos clínicos</div>
+    <div class="fg fg3">
+      <div class="field"><label>Peso (kg)</label><input id="pac_peso" type="number" placeholder="70" oninput="calcBMI()"></div>
+      <div class="field"><label>Talla (cm)</label><input id="pac_talla" type="number" placeholder="170" oninput="calcBMI()"></div>
+      <div class="field"><label>IMC calculado</label><input id="pac_imc" readonly placeholder="Automático"></div>
+    </div>
+    <div id="bmiResult" style="display:none;margin-top:0.6rem;"></div>
+    <div class="fg fg2" style="margin-top:0.8rem;">
+      <div class="field"><label>Tiempo evolución DA</label>
+        <select id="pac_evol"><option value="">—</option><option>Menos de 1 año</option><option>1–5 años</option><option>5–10 años</option><option>Más de 10 años</option><option>Desde la infancia</option></select>
+      </div>
+      <div class="field"><label>Patrón clínico</label>
+        <select id="cli_patron"><option>Moderada-severa crónica</option><option>Brotes frecuentes</option><option>Persistente refractaria</option></select>
+      </div>
+    </div>
+    <div class="fg" style="margin-top:0.8rem;">
+      <div class="field"><label>Comorbilidades (asma, rinitis, urticaria, alergia alimentaria)</label><textarea id="pac_comor" placeholder="Asma, rinitis alérgica, conjuntivitis, urticaria, alergia alimentaria…"></textarea></div>
+      <div class="field"><label>Alergias / contraindicaciones</label><textarea id="pac_alergias" placeholder="Sin alergias conocidas / Detallar si hay…"></textarea></div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(0)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(2)">Continuar →</button>
+  </div>
+</div>
+
+<div class="step" id="step2">
+  <div class="step-ey">Paso 3 de 9</div><div class="step-ti">Score EASI</div>
+  <div class="step-de">Eczema Area and Severity Index — evaluá eritema, induración/pápulas, excoriación y liquenificación en 4 regiones.</div>
+  <div class="info-box">
+    <strong>Signos (0–3 c/u):</strong> 0=ninguno · 1=leve · 2=moderado · 3=severo<br>
+    <strong>Área afectada:</strong> 0=0% · 1=1–9% · 2=10–29% · 3=30–49% · 4=50–69% · 5=70–89% · 6=90–100%<br>
+    Máximo: <strong>72</strong> · Leve: &lt;7 · Moderado: 7–21 · Severo: &gt;21 · Indicación biológico: EASI <strong>≥ 16</strong>
+  </div>
+  <div class="card"><div class="card-title">Evaluación por región</div>
+    <div id="easiAreas"></div>
+    <div class="result-box" id="easiResult">
+      <div class="res-num" id="easiTotal">—</div>
+      <div><div class="res-lbl" id="easiLbl">Completá todas las regiones</div>
+      <div class="res-desc" id="easiDesc">Ingresá los valores de las 4 regiones.</div>
+      <div class="res-badge" id="easiBadge" style="display:none"></div></div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Referencia EASI</div>
+    <div class="ref-table"><table>
+      <thead><tr><th>Signo</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead>
+      <tbody>
+        <tr><td><b>Eritema (E)</b></td><td>Ninguno</td><td>Leve</td><td>Moderado</td><td>Severo</td></tr>
+        <tr><td><b>Induración/Pápulas (I)</b></td><td>Ninguno</td><td>Leve</td><td>Moderado</td><td>Severo</td></tr>
+        <tr><td><b>Excoriación (Ex)</b></td><td>Ninguno</td><td>Leve</td><td>Moderado</td><td>Severo</td></tr>
+        <tr><td><b>Liquenificación (L)</b></td><td>Ninguno</td><td>Leve</td><td>Moderado</td><td>Severo</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(1)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(3)">Continuar →</button>
+  </div>
+</div>
+
+<div class="step" id="step3">
+  <div class="step-ey">Paso 4 de 9</div><div class="step-ti">Score SCORAD</div>
+  <div class="step-de">SCORing Atopic Dermatitis — combina extensión, intensidad y síntomas subjetivos.</div>
+  <div class="info-box">
+    <strong>Fórmula:</strong> SCORAD = A/5 + 7×B/2 + C<br>
+    <strong>A</strong> = Extensión (regla de los 9, 0–100%) · <strong>B</strong> = Intensidad (suma de 6 signos, 0–18) · <strong>C</strong> = Síntomas subjetivos (prurito + insomnio, 0–20)<br>
+    Máximo: <strong>103</strong> · Leve: &lt;25 · Moderado: 25–50 · Severo: &gt;50
+  </div>
+  <div class="card"><div class="card-title">A — Extensión (%)</div>
+    <div class="fg fg2">
+      <div class="field"><label>% superficie corporal afectada (regla de los 9)</label>
+        <input id="scorad_a" type="number" min="0" max="100" placeholder="0–100" oninput="calcSCORAD()">
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:0.7rem;font-size:0.76rem;color:var(--muted);line-height:1.6;">
+        Cabeza y cuello: 9% · Tronco anterior: 18% · Tronco posterior: 18% · Cada MMSS: 9% · Cada MMII: 18% · Genitales: 1%
+      </div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">B — Intensidad (6 signos, 0–3 c/u)</div>
+    <div class="fg fg3" id="scoradB"></div>
+    <div style="margin-top:0.75rem;font-size:0.78rem;color:var(--muted);">Subtotal B: <strong id="scoradBtotal" style="color:var(--rose)">—</strong> / 18</div>
+  </div>
+  <div class="card"><div class="card-title">C — Síntomas subjetivos (última semana, escala 0–10 c/u)</div>
+    <div class="fg fg2">
+      <div class="field"><label>Prurito (0=ninguno, 10=máximo)</label>
+        <input id="scorad_prurito" type="number" min="0" max="10" placeholder="0–10" oninput="calcSCORAD()">
+      </div>
+      <div class="field"><label>Insomnio (0=ninguno, 10=máximo)</label>
+        <input id="scorad_insomnio" type="number" min="0" max="10" placeholder="0–10" oninput="calcSCORAD()">
+      </div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Resultado SCORAD</div>
+    <div class="result-box" id="scoradResult">
+      <div class="res-num" id="scoradTotal">—</div>
+      <div><div class="res-lbl" id="scoradLbl">Completá todos los campos</div>
+      <div class="res-desc" id="scoradDesc">Ingresá extensión, intensidad y síntomas subjetivos.</div>
+      <div class="res-badge" id="scoradBadge" style="display:none"></div></div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(2)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(4)">Continuar →</button>
+  </div>
+</div>
+
+<div class="step" id="step4">
+  <div class="step-ey">Paso 5 de 9</div><div class="step-ti">Score DLQI</div>
+  <div class="step-de">Dermatology Life Quality Index — impacto en la calidad de vida durante la última semana.</div>
+  <div class="info-box">
+    <strong>0</strong>=Nada · <strong>1</strong>=Un poco · <strong>2</strong>=Bastante · <strong>3</strong>=Muchísimo · Máximo: <strong>30</strong> · DLQI ≥ 10 = indicación biológico
+  </div>
+  <div class="card"><div class="card-title">Preguntas DLQI</div><div id="dlqiQs"></div></div>
+  <div class="card"><div class="card-title">Resultado DLQI</div>
+    <div class="result-box" id="dlqiResult">
+      <div class="res-num" id="dlqiTotal">—</div>
+      <div><div class="res-lbl" id="dlqiLbl">Completá todas las preguntas</div>
+      <div class="res-desc" id="dlqiDesc">Respondé las 10 preguntas.</div>
+      <div class="res-badge" id="dlqiBadge" style="display:none"></div></div>
+    </div>
+    <div class="ref-table" style="margin-top:1rem;"><table>
+      <thead><tr><th>Puntaje</th><th>Impacto</th></tr></thead>
+      <tbody>
+        <tr><td><b>0–1</b></td><td>Sin efecto</td></tr>
+        <tr><td><b>2–5</b></td><td>Pequeño efecto</td></tr>
+        <tr><td><b>6–10</b></td><td>Efecto moderado</td></tr>
+        <tr><td><b>11–20</b></td><td>Efecto grande</td></tr>
+        <tr><td><b>21–30</b></td><td>Efecto extremadamente grande</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(3)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(5)">Continuar →</button>
+  </div>
+</div>
+
+<div class="step" id="step5">
+  <div class="step-ey">Paso 6 de 9</div><div class="step-ti">Selección del biológico / JAKi</div>
+  <div class="step-de">Scores calculados. Elegí el tratamiento indicado para este paciente.</div>
+  <div class="scores-box">
+    <div class="score-item"><label>EASI</label><div class="sv" id="srEASI" style="color:var(--muted)">—</div><div class="sl" id="srEASIlbl">Sin calcular</div></div>
+    <div class="score-item"><label>SCORAD</label><div class="sv" id="srSCORAD" style="color:var(--muted)">—</div><div class="sl" id="srSCORADlbl">Sin calcular</div></div>
+    <div class="score-item"><label>DLQI</label><div class="sv" id="srDLQI" style="color:var(--muted)">—</div><div class="sl" id="srDLQIlbl">Sin calcular</div></div>
+  </div>
+  <div class="card"><div class="card-title">Tratamiento indicado</div><div class="bio-grid" id="bioGrid"></div></div>
+  <div id="bioInfoBox" style="display:none"><div class="bio-info-box" id="bioInfoContent"></div></div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(4)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(6)">Continuar →</button>
+  </div>
+</div>
+
+<div class="step" id="step6">
+  <div class="step-ey">Paso 7 de 9</div><div class="step-ti">Justificación clínica</div>
+  <div class="step-de">Documentá los tratamientos previos y los criterios de indicación.</div>
+  <div class="card"><div class="card-title">Tratamientos previos</div>
+    <div id="ttoList"></div>
+    <div class="fg" style="margin-top:0.75rem;">
+      <div class="field"><label>Otros / Observaciones</label><textarea id="cli_otros" placeholder="Otros tratamientos, motivo de falla o intolerancia…"></textarea></div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Criterios de indicación</div>
+    <div class="check-grid" id="criteriosGrid"></div>
+    <div class="fg" style="margin-top:0.75rem;">
+      <div class="field"><label>Localización especial / Observaciones</label><textarea id="cli_obs" placeholder="Cara, párpados, manos, genitales, impacto laboral…"></textarea></div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(5)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(7)">Continuar →</button>
+  </div>
+</div>
+
+<div class="step" id="step7">
+  <div class="step-ey">Paso 8 de 9</div><div class="step-ti">Estudios previos al biológico</div>
+  <div class="step-de">Registrá los estudios realizados antes de iniciar el tratamiento.</div>
+  <div class="card">
+    <div class="card-title">Adjuntar estudios</div>
+    <div class="info-box"><strong>📎 Adjuntá los estudios requeridos:</strong><br>Laboratorio general, Serologías, Screening TBC (PPD/IGRA), Vacunas.</div>
+    <div class="fg" style="margin-top:0.5rem;">
+      <div class="field"><label>Laboratorio general y serologías</label>
+        <input type="file" id="adj_lab" accept=".pdf,.jpg,.jpeg,.png" multiple style="padding:0.4rem;cursor:pointer;">
+        <span style="font-size:0.72rem;color:var(--muted);margin-top:0.2rem;">PDF, JPG o PNG. Podés adjuntar varios archivos.</span>
+      </div>
+      <div class="field"><label>Screening TBC (PPD / IGRA)</label>
+        <input type="file" id="adj_tbc" accept=".pdf,.jpg,.jpeg,.png" multiple style="padding:0.4rem;cursor:pointer;">
+      </div>
+      <div class="field"><label>Certificado de vacunación</label>
+        <input type="file" id="adj_vac" accept=".pdf,.jpg,.jpeg,.png" multiple style="padding:0.4rem;cursor:pointer;">
+      </div>
+      <div class="field"><label>Otros estudios</label>
+        <input type="file" id="adj_otros" accept=".pdf,.jpg,.jpeg,.png" multiple style="padding:0.4rem;cursor:pointer;">
+      </div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">Screening TBC</div>
+    <div class="info-box" style="margin-bottom:0.8rem;"><strong>Importante:</strong> Screening TBC obligatorio antes de biológicos y JAKi. Los inhibidores JAK requieren además screening de herpes zóster y trombosis.</div>
+    <div id="tbcGrid"></div>
+  </div>
+  <div class="card"><div class="card-title">Vacunas</div>
+    <div class="info-box" style="margin-bottom:0.8rem;"><strong>Recomendación:</strong> Completar esquema <strong>antes</strong> del biológico. Herpes zóster especialmente importante si se indica JAKi.</div>
+    <div id="vacGrid"></div>
+  </div>
+  <div class="card"><div class="card-title">Observaciones</div>
+    <div class="field"><label>Observaciones sobre estudios previos</label>
+      <textarea id="est_obs" placeholder="Resultados alterados, estudios pendientes, motivo de excepción…"></textarea>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(6)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(8)">Ver pedido →</button>
+  </div>
+</div>
+
+
+<!-- STEP 8: CONSENTIMIENTO -->
+<div class="step" id="step10">
+  <div class="step-ey">Consentimiento</div>
+  <div class="step-ti">Consentimiento informado</div>
+  <div class="step-de">El paciente debe leer y firmar este consentimiento antes de iniciar el tratamiento.</div>
+  <div class="card">
+    <div class="card-title">Consentimiento del paciente — Dermatitis Atópica</div>
+    <div class="info-box">
+      Se me ha informado que mi médico/a tratante indica un tratamiento para mi diagnóstico de <strong>Dermatitis Atópica</strong>. Comprendo los riesgos, beneficios y la necesidad de controles periódicos. Puedo retirar este consentimiento en cualquier momento.
+    </div>
+    <div class="fg fg2" style="margin-top:1rem;">
+      <div class="field"><label>Nombre completo del paciente</label><input id="cons_pac_nombre" placeholder="Se completa automáticamente" readonly></div>
+      <div class="field"><label>DNI del paciente</label><input id="cons_pac_dni" placeholder="Se completa automáticamente" readonly></div>
+      <div class="field"><label>Fecha de firma</label><input id="cons_fecha" type="date"></div>
+      <div class="field"><label>Lugar</label><input id="cons_lugar" placeholder="Ciudad, Provincia"></div>
+    </div>
+    <div class="fg" style="margin-top:1rem;">
+      <div class="field">
+        <label>Firma del paciente (adjuntar imagen)</label>
+        <input type="file" id="cons_firma_pac" accept=".jpg,.jpeg,.png,.pdf" style="padding:0.4rem;cursor:pointer;">
+      </div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(97)">← Atrás</button>
+    <button class="btn btn-p" onclick="goTo(9)">Continuar →</button>
+  </div>
+</div>
+
+<!-- STEP 9: RECETA -->
+<div class="step" id="step9">
+  <div class="step-ey">Receta médica</div>
+  <div class="step-ti">Receta médica</div>
+  <div class="step-de">Completá los datos de la prescripción.</div>
+  <div class="card">
+    <div class="card-title">Prescripción</div>
+    <div class="fg fg2">
+      <div class="field"><label>Diagnóstico CIE-10</label><input id="rec_cie" value="L20 — Dermatitis Atópica" readonly></div>
+      <div class="field"><label>Medicamento *</label><input id="rec_med" placeholder="Nombre del medicamento"></div>
+      <div class="field"><label>Dosis *</label><input id="rec_dosis" placeholder="ej: 300 mg"></div>
+      <div class="field"><label>Vía de administración</label>
+        <select id="rec_via"><option value="">— Seleccionar —</option><option>Subcutánea</option><option>Oral</option><option>Tópica</option><option>Intravenosa</option></select>
+      </div>
+      <div class="field"><label>Frecuencia *</label><input id="rec_frec" placeholder="ej: diario, semanal…"></div>
+      <div class="field"><label>Duración</label><input id="rec_dur" placeholder="ej: 6 meses, indefinido…"></div>
+      <div class="field"><label>Cantidad</label><input id="rec_cant" placeholder="ej: 2 tubos, 4 jeringas"></div>
+      <div class="field"><label>Fecha de emisión</label><input id="rec_fecha" type="date"></div>
+    </div>
+    <div class="fg" style="margin-top:0.5rem;">
+      <div class="field"><label>Indicaciones al paciente</label>
+        <textarea id="rec_indicaciones" placeholder="Instrucciones, conservación, precauciones…"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Firma y sello médico</div>
+    <div class="info-box">Al imprimir, el médico deberá <strong>firmar y sellar</strong> la receta.</div>
+    <div class="fg fg2">
+      <div class="field"><label>Médico prescriptor</label><input id="rec_medico" placeholder="Se completa automáticamente" readonly></div>
+      <div class="field"><label>Matrícula</label><input id="rec_matricula" placeholder="Se completa automáticamente" readonly></div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(8)">← Atrás</button>
+    <button class="btn btn-p" onclick="prepReceta();goTo(10)">Ver pedido completo →</button>
+  </div>
+</div>
+
+<div class="step" id="step8">
+  <div class="step-ey">Paso 9 de 9</div><div class="step-ti">Pedido listo para imprimir</div>
+  <div class="step-de">Revisá el resumen y exportá como PDF para la obra social.</div>
+  <div id="summaryOut"></div>
+  <div class="warn-box"><strong>⚠️ Antes de imprimir:</strong> Verificá los datos. El médico deberá firmar y sellar. Adjuntar: laboratorio, serologías, PPD/IGRA, foto de lesiones y consentimiento informado.</div>
+  <div class="btn-row">
+    <button class="btn btn-g" onclick="goTo(7)">← Editar</button>
+    <button class="btn btn-pr" onclick="window.print()">🖨 Imprimir / PDF</button>
+    <button class="btn btn-d" onclick="resetAll()">🗑 Nuevo pedido</button>
+  </div>
+</div>
+  <div style="margin-top:1.5rem;padding:1rem 1.2rem;background:var(--lav-l);border:1px solid var(--lav-m);border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+    <div>
+      <div style="font-size:0.75rem;font-weight:700;color:var(--lav);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.2rem;">💬 ¿Encontraste algo para mejorar?</div>
+      <div style="font-size:0.78rem;color:var(--ink2);">Tus sugerencias ayudan a mejorar DermIA para todos los médicos.</div>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwtqFhDYXy2ql0PZ3PbiOU82dAqzMcQgGabJDkCAypE2-NkQ/viewform?usp=publish-editor" target="_blank" style="padding:0.55rem 1.2rem;background:var(--lav);color:#fff;border-radius:8px;font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;">Sugerir cambios →</a>
+  </div>
+</div>
+
+<script>
+var cur=0, TOTAL=9;
+
+function calcBMI(){
+  var p=parseFloat(document.getElementById('pac_peso').value||0);
+  var t=parseFloat(document.getElementById('pac_talla').value||0);
+  var imc_el=document.getElementById('pac_imc');
+  var res_el=document.getElementById('bmiResult');
+  if(p>0&&t>0){
+    var imc=p/((t/100)*(t/100));
+    var imcR=imc.toFixed(1);
+    imc_el.value=imcR;
+    var cat='',col='';
+    if(imc<18.5){cat='Bajo peso';col='#d4ac10';}
+    else if(imc<25){cat='Normopeso';col='#1e8c5a';}
+    else if(imc<30){cat='Sobrepeso';col='#e07b2a';}
+    else if(imc<35){cat='Obesidad Grado I';col='#c0392b';}
+    else if(imc<40){cat='Obesidad Grado II';col='#c0392b';}
+    else{cat='Obesidad Grado III';col='#c0392b';}
+    res_el.style.display='block';
+    res_el.innerHTML='<div class="bmi-badge" style="color:'+col+';background:'+col+'18;border:1px solid '+col+'44;padding:0.4rem 0.8rem;border-radius:8px;font-size:0.78rem;font-weight:700;">IMC '+imcR+' kg/m² — '+cat+'</div>';
+  } else {imc_el.value='';res_el.style.display='none';}
+}
+
+// BIOLÓGICOS
+var BIOS=[
+  {id:'dupilumab',name:'Dupilumab',brand:'Dupixent®',mech:'Anti-IL-4Rα',mechClass:'mech-il4',
+   tags:['SC','Jeringa/Pluma','Niños ≥6 meses','1° línea biológico'],
+   dosePreview:'<strong>600 mg</strong> SC sem 0 → 300 mg c/2 sem (adultos)',
+   dosis:'300 mg SC cada 2 semanas (adultos)',presentacion:'300 mg/2 mL jeringa precargada',
+   frecuencia:'Cada 2 semanas',via:'Subcutánea',duracion:'Indefinida con reevaluación',
+   scheme:'<strong>Adultos:</strong> 600 mg SC (2 inyecciones de 300 mg) semana 0, luego 300 mg SC cada 2 semanas.<br><strong>Adolescentes 12–17 años:</strong> 400 mg SC semana 0 (si peso ≥60 kg igual que adultos), luego 200 mg c/2 sem o 300 mg c/4 sem.<br><strong>Niños 6–11 años:</strong> dosis según peso (100–300 mg SC c/4 sem).<br><strong>Niños 6 meses–5 años:</strong> 200 mg SC c/4 sem (≥5 kg).<br><strong>También aprobado:</strong> asma, poliposis nasal, esofagitis eosinofílica, prurito nodular.',
+   warning:'No requiere screening TBC (no inmunosupresor clásico). Vigilar conjuntivitis (frecuente). No usar vacunas vivas durante tratamiento. Sin ajuste por peso en adultos.'},
+  {id:'tralokinumab',name:'Tralokinumab',brand:'Adtralza®',mech:'Anti-IL-13',mechClass:'mech-il13',
+   tags:['SC','Jeringa precargada','Adultos'],
+   dosePreview:'<strong>600 mg</strong> SC sem 0 → 300 mg c/2 sem → c/4 sem si respuesta',
+   dosis:'300 mg SC cada 2 semanas (mantenimiento)',presentacion:'150 mg/mL × 2 jeringas por dosis',
+   frecuencia:'Cada 2 sem (puede espaciar a c/4 sem)',via:'Subcutánea',duracion:'Indefinida con reevaluación',
+   scheme:'<strong>Inducción:</strong> 600 mg SC semana 0 (2 jeringas de 300 mg).<br><strong>Mantenimiento:</strong> 300 mg SC cada 2 semanas.<br><strong>Reducción de frecuencia:</strong> en pacientes con respuesta adecuada a las 16 semanas, puede considerarse 300 mg cada 4 semanas.',
+   warning:'No requiere screening TBC. Vigilar conjuntivitis (menos frecuente que dupilumab). Solo aprobado en adultos (≥18 años).'},
+  {id:'lebrikizumab',name:'Lebrikizumab',brand:'Ebglyss®',mech:'Anti-IL-13',mechClass:'mech-il13',
+   tags:['SC','Jeringa/Pluma','Adolescentes y adultos'],
+   dosePreview:'<strong>500 mg</strong> SC sem 0 y 2 → 250 mg c/2 sem → c/4 sem',
+   dosis:'250 mg SC cada 2 semanas (mantenimiento)',presentacion:'250 mg/2 mL jeringa precargada',
+   frecuencia:'Cada 2 sem (puede espaciar a c/4 sem)',via:'Subcutánea',duracion:'Indefinida con reevaluación',
+   scheme:'<strong>Inducción:</strong> 500 mg SC en semanas 0 y 2 (2 inyecciones de 250 mg c/vez).<br><strong>Mantenimiento:</strong> 250 mg SC cada 2 semanas.<br><strong>Reducción de frecuencia:</strong> en respondedores, puede pasarse a 250 mg cada 4 semanas.<br><strong>Adolescentes ≥12 años:</strong> mismo esquema.',
+   warning:'No requiere screening TBC. Menor incidencia de conjuntivitis vs dupilumab. Aprobado ≥12 años.'},
+  {id:'upadacitinib',name:'Upadacitinib',brand:'Rinvoq®',mech:'JAKi selectivo (JAK1)',mechClass:'mech-jak',
+   tags:['VO','Comprimido diario','Adultos y adolescentes','JAK inhibidor'],
+   dosePreview:'<strong>15 mg</strong> VO/día (moderada) o <strong>30 mg</strong> VO/día (severa)',
+   dosis:'15 mg o 30 mg VO una vez al día',presentacion:'Comprimidos de liberación prolongada 15 mg / 30 mg',
+   frecuencia:'Una vez al día (vía oral)',via:'Oral — comprimidos de liberación prolongada',duracion:'Indefinida con reevaluación',
+   scheme:'<strong>DA moderada:</strong> 15 mg VO una vez al día.<br><strong>DA severa:</strong> 30 mg VO una vez al día.<br><strong>Adolescentes 12–17 años:</strong> 15 mg/día (refractarios) o 30 mg/día (severa).<br><strong>Nota:</strong> No partir, masticar ni triturar los comprimidos. Puede tomarse con o sin alimentos.',
+   warning:'Screening TBC e infecciones OBLIGATORIO antes de iniciar. Solicitar hemograma, hepatograma, lípidos, creatinina. Contraindicado en embarazo (anticoncepción efectiva). Riesgo cardiovascular, trombosis, neoplasias — evaluar riesgo-beneficio. Vacuna herpes zóster recomendada antes de iniciar. No usar en insuficiencia renal severa.'},
+  {id:'baricitinib',name:'Baricitinib',brand:'Olumiant®',mech:'JAKi (JAK1/JAK2)',mechClass:'mech-jak',
+   tags:['VO','Comprimido diario','Adultos','JAK inhibidor'],
+   dosePreview:'<strong>4 mg</strong> VO/día (puede reducir a 2 mg)',
+   dosis:'4 mg VO una vez al día',presentacion:'Comprimidos 2 mg / 4 mg',
+   frecuencia:'Una vez al día (vía oral)',via:'Oral — comprimido',duracion:'Indefinida con reevaluación',
+   scheme:'<strong>Dosis estándar:</strong> 4 mg VO una vez al día.<br><strong>Reducción:</strong> puede reducirse a 2 mg/día en pacientes con respuesta adecuada o mayor riesgo de efectos adversos.<br><strong>Solo aprobado en adultos</strong> (≥18 años) para DA.<br><strong>Insuficiencia renal moderada (FG 30–59):</strong> reducir a 2 mg/día.',
+   warning:'Screening TBC e infecciones OBLIGATORIO. Hemograma (vigilar linfopenia/neutropenia), hepatograma, lípidos, creatinina, CPK. Riesgo MACE, trombosis, neoplasias. Vacuna herpes zóster recomendada. Contraindicado en embarazo. Solo adultos ≥18 años para DA.'}
+];
+var selectedBio=null;
+
+// EASI
+var EASI_AREAS=[
+  {id:'head',name:'Cabeza y cuello',weight:0.1},
+  {id:'arms',name:'Extremidades superiores',weight:0.2},
+  {id:'trunk',name:'Tronco',weight:0.3},
+  {id:'legs',name:'Extremidades inferiores',weight:0.4}
+];
+var EASI_SIGNS=['e','i','ex','l'];
+var EASI_LABELS=['Eritema (E)','Induración/Pápulas (I)','Excoriación (Ex)','Liquenificación (L)'];
+var easiData={};
+EASI_AREAS.forEach(function(a){easiData[a.id]={e:null,i:null,ex:null,l:null,area:null};});
+
+// SCORAD
+var SCORAD_B_SIGNS=[
+  {id:'eritema',label:'Eritema'},
+  {id:'edema',label:'Edema / pápulas'},
+  {id:'exudado',label:'Exudado / costras'},
+  {id:'excoriacion',label:'Excoriación'},
+  {id:'liquenificacion',label:'Liquenificación'},
+  {id:'sequedad',label:'Sequedad (en piel no inflamada)'}
+];
+var scoradBData={};
+SCORAD_B_SIGNS.forEach(function(s){scoradBData[s.id]=null;});
+
+// DLQI
+var dlqiData=[null,null,null,null,null,null,null,null,null,null];
+var DLQI_QS=['Picazón, ardor o dolor en la piel','Vergüenza o timidez a causa de la piel','Interferencia en compras o cuidado del hogar','Influencia en la ropa elegida','Afectación de actividades sociales o de ocio','Dificultad para hacer deportes','Interferencia en el trabajo o estudio','Problemas con pareja, amigos o familia','Dificultad en la vida sexual','Problemas con el tratamiento de la piel'];
+
+// TRATAMIENTOS
+var TTOS=[
+  {id:'t1',name:'Emolientes intensivos (uso regular)',note:'Base del tratamiento en todos los casos',res:'Insuficiente como monoterapia'},
+  {id:'t2',name:'Corticoides tópicos (clase I–IV)',note:'Betametasona, triamcinolona, hidrocortisona',res:'Respuesta parcial / recurrencia'},
+  {id:'t3',name:'Inhibidores calcineurina tópicos',note:'Tacrolimus 0.1%, pimecrolimus 1%',res:'Respuesta parcial / intolerancia'},
+  {id:'t4',name:'Inhibidores PDE-4 tópicos (crisaborol)',note:'Eucrisa — DA leve a moderada',res:'Respuesta insuficiente'},
+  {id:'t5',name:'JAKi tópico (ruxolitinib)',note:'Opzelura — DA leve a moderada',res:'Respuesta insuficiente'},
+  {id:'t6',name:'Fototerapia UVB banda estrecha',note:'NB-UVB ≥ 36 sesiones',res:'Insuficiente / no disponible'},
+  {id:'t7',name:'Ciclosporina A',note:'3–5 mg/kg/día (máx 6 meses continuos)',res:'Intolerancia / contraindicación / falla'},
+  {id:'t8',name:'Metotrexato',note:'10–25 mg/semana VO o SC',res:'Intolerancia / contraindicación / falla'},
+  {id:'t9',name:'Azatioprina',note:'1–3 mg/kg/día',res:'Intolerancia / falla'},
+  {id:'t10',name:'Corticoides sistémicos (rescate)',note:'Prednisona oral — uso limitado',res:'Dependencia / recurrencia'},
+  {id:'t11',name:'Baricitinib (JAKi oral)',note:'Olumiant 4 mg/día',res:'Respuesta insuficiente / intolerancia'},
+  {id:'t12',name:'Upadacitinib (JAKi oral)',note:'Rinvoq 15–30 mg/día',res:'Respuesta insuficiente / intolerancia'}
+];
+var ttoChecked={t2:true,t3:true,t7:true};
+
+// CRITERIOS
+var criterios=[
+  {id:'c1',label:'DA moderada-severa confirmada (EASI ≥ 16)',checked:false},
+  {id:'c2',label:'DLQI ≥ 10 (impacto en calidad de vida)',checked:false},
+  {id:'c3',label:'SCORAD ≥ 25 (moderado-severo)',checked:false},
+  {id:'c4',label:'Falla a corticoides tópicos potentes',checked:true},
+  {id:'c5',label:'Falla a inhibidores calcineurina tópicos',checked:true},
+  {id:'c6',label:'Falla o contraindicación a ciclosporina',checked:true},
+  {id:'c7',label:'Falla o contraindicación a metotrexato',checked:false},
+  {id:'c8',label:'Sin contraindicación al tratamiento indicado',checked:true},
+  {id:'c9',label:'Screening TBC realizado (negativo)',checked:true},
+  {id:'c10',label:'Consentimiento informado del paciente',checked:false}
+];
+
+// ESTUDIOS
+var LAB_ITEMS=[
+  {id:'hemograma',name:'Hemograma completo'},
+  {id:'hepatograma',name:'Hepatograma (TGO, TGP, FAL, bilirrubina)'},
+  {id:'renal',name:'Función renal (urea, creatinina)'},
+  {id:'glucemia',name:'Glucemia'},
+  {id:'lipidos',name:'Lipidograma (importante en JAKi)'},
+  {id:'orina',name:'Orina completa'},
+  {id:'cpk',name:'CPK (especialmente en JAKi)'},
+  {id:'rxTorax',name:'Radiografía de tórax'}
+];
+var SERO_ITEMS=[
+  {id:'hbsag',name:'HBsAg (Hepatitis B superficie)'},
+  {id:'antihbc',name:'Anti-HBc (Hepatitis B core)'},
+  {id:'antihbs',name:'Anti-HBs (Hepatitis B anticuerpos)'},
+  {id:'hcv',name:'Anti-HCV (Hepatitis C)'},
+  {id:'hiv',name:'HIV (ELISA)'},
+  {id:'vdrl',name:'VDRL (sífilis)'},
+  {id:'chagas',name:'Chagas (HAI / ELISA)'}
+];
+var TBC_ITEMS=[
+  {id:'ppd',name:'PPD (Mantoux)'},
+  {id:'igra',name:'IGRA / QuantiFERON-TB Gold'}
+];
+var VAC_ITEMS=[
+  {id:'neumo',name:'Neumococo (VCN13 + VPN23)'},
+  {id:'hepb',name:'Hepatitis B (esquema completo)'},
+  {id:'hzoster',name:'Herpes Zóster (Shingrix — obligatorio antes de JAKi)'},
+  {id:'influenza',name:'Influenza (anual)'},
+  {id:'covid',name:'COVID-19'},
+  {id:'doble',name:'Doble bacteriana (dTpa)'}
+];
+var ESTADOS=['Realizado','Pendiente','No aplica'];
+var estData={};
+function initEstData(){
+  var all=[].concat(LAB_ITEMS,SERO_ITEMS,TBC_ITEMS,VAC_ITEMS);
+  for(var i=0;i<all.length;i++){estData[all[i].id]={estado:'',resultado:''};}
+}
+initEstData();
+
+// NAV
+function goTo(n){
+  document.getElementById('step'+cur).classList.remove('active');
+  var ns=document.querySelectorAll('.nav-step');
+  ns[cur].classList.remove('active'); ns[cur].classList.add('done');
+  cur=n;
+  document.getElementById('step'+n).classList.add('active');
+  ns[n].classList.add('active'); ns[n].classList.remove('done');
+  document.getElementById('pf').style.width=((n+1)/TOTAL*100)+'%';
+  if(n===5) updateScoresResumen();
+  if(n===8) buildSummary();
+  updateMobNav();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+var STEP_NAMES=['Médico','Paciente','EASI','SCORAD','DLQI','Biológico','Clínica','Estudios','Pedido'];
+function updateMobNav(){
+  var dots=document.getElementById('mobDots');
+  var label=document.getElementById('mobLabel');
+  var back=document.getElementById('mobBack');
+  var next=document.getElementById('mobNext');
+  if(!dots) return;
+  dots.innerHTML='';
+  for(var i=0;i<TOTAL;i++){
+    var d=document.createElement('div');
+    d.className='mob-dot'+(i===cur?' active':i<cur?' done':'');
+    dots.appendChild(d);
+  }
+  label.textContent='Paso '+(cur+1)+' de '+TOTAL+' · '+STEP_NAMES[cur];
+  back.style.display=cur===0?'none':'block';
+  next.textContent=cur===TOTAL-1?'Imprimir':'Continuar →';
+}
+function mobGoNext(){if(cur===TOTAL-1){window.print();return;}goTo(cur+1);}
+function mobGoBack(){if(cur>0) goTo(cur-1);}
+
+// SCORES RESUMEN
+function updateScoresResumen(){
+  var easi=getEASI(); var sc=getSCORAD(); var dl=getDLQI();
+  var se=document.getElementById('srEASI'); var sel=document.getElementById('srEASIlbl');
+  var ss=document.getElementById('srSCORAD'); var ssl=document.getElementById('srSCORADlbl');
+  var sd=document.getElementById('srDLQI'); var sdl=document.getElementById('srDLQIlbl');
+  if(easi!==null){se.textContent=easi;se.style.color=easi<7?'#1e8c5a':easi<=21?'#e07b2a':'#c0392b';sel.textContent=easi<7?'Leve (<7)':easi<=21?'Moderado (7–21)':'Severo (>21)';}
+  if(sc!==null){ss.textContent=sc.toFixed(1);ss.style.color=sc<25?'#1e8c5a':sc<=50?'#e07b2a':'#c0392b';ssl.textContent=sc<25?'Leve (<25)':sc<=50?'Moderado (25–50)':'Severo (>50)';}
+  if(dl!==null){sd.textContent=dl;sd.style.color=dl<=1?'#1e8c5a':dl<=10?'#e07b2a':'#c0392b';sdl.textContent=dl<=1?'Sin efecto':dl<=10?'Moderado':'Grande/Extremo';}
+}
+
+// EASI
+function buildEASI(){
+  var c=document.getElementById('easiAreas'); c.innerHTML='';
+  for(var ai=0;ai<EASI_AREAS.length;ai++){
+    var a=EASI_AREAS[ai];
+    var d=easiData[a.id];
+    var filled=d.e!==null&&d.i!==null&&d.ex!==null&&d.l!==null&&d.area!==null;
+    var sc=filled?calcEASIArea(a.id).toFixed(1):'—';
+    var div=document.createElement('div');
+    div.style.cssText='background:var(--cream);border:1.5px solid '+(filled?'var(--rose-m)':'var(--border)')+';border-radius:10px;padding:1rem;margin-bottom:0.75rem;';
+    var hdr=document.createElement('div');
+    hdr.style.cssText='display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem;';
+    hdr.innerHTML='<div style="font-weight:800;font-size:0.88rem;color:var(--ink);">'+a.name+'</div>'
+      +'<div style="display:flex;align-items:center;gap:0.6rem;">'
+      +'<span style="font-size:0.7rem;font-weight:700;padding:0.18rem 0.55rem;border-radius:20px;background:var(--lav-l);color:var(--lav);">×'+a.weight+'</span>'
+      +'<span style="font-family:Lora,serif;font-size:1.4rem;color:var(--rose);">'+sc+'</span></div>';
+    var grid=document.createElement('div');
+    grid.style.cssText='display:grid;grid-template-columns:repeat(5,1fr);gap:0.5rem;';
+    // Signs
+    for(var si=0;si<EASI_SIGNS.length;si++){
+      var field=EASI_SIGNS[si];
+      var sub=document.createElement('div');
+      sub.style.cssText='display:flex;flex-direction:column;gap:0.25rem;';
+      var lbl=document.createElement('label');
+      lbl.style.cssText='font-size:0.63rem;font-weight:700;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;';
+      lbl.textContent=EASI_LABELS[si];
+      var sel=document.createElement('select');
+      sel.style.cssText='border:1px solid var(--border);border-radius:6px;padding:0.28rem 0.2rem;font-family:Raleway,sans-serif;font-size:0.85rem;font-weight:600;background:#fff;color:var(--ink);cursor:pointer;outline:none;appearance:none;text-align:center;';
+      var opt0=document.createElement('option'); opt0.value=''; opt0.textContent='—'; sel.appendChild(opt0);
+      for(var v=0;v<=3;v++){var opt=document.createElement('option');opt.value=v;opt.textContent=v;sel.appendChild(opt);}
+      if(d[field]!==null) sel.value=String(d[field]);
+      (function(aId,f){sel.onchange=function(){easiData[aId][f]=this.value===''?null:parseInt(this.value);buildEASI();calcEASI();};})(a.id,field);
+      sub.appendChild(lbl); sub.appendChild(sel);
+      grid.appendChild(sub);
+    }
+    // Area
+    var areaSub=document.createElement('div');
+    areaSub.style.cssText='display:flex;flex-direction:column;gap:0.25rem;';
+    var areaLbl=document.createElement('label');
+    areaLbl.style.cssText='font-size:0.63rem;font-weight:700;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;';
+    areaLbl.textContent='Área (0–6)';
+    var areaSel=document.createElement('select');
+    areaSel.style.cssText='border:1px solid var(--border);border-radius:6px;padding:0.28rem 0.2rem;font-family:Raleway,sans-serif;font-size:0.85rem;font-weight:600;background:#fff;color:var(--ink);cursor:pointer;outline:none;appearance:none;text-align:center;';
+    var aopt0=document.createElement('option'); aopt0.value=''; aopt0.textContent='—'; areaSel.appendChild(aopt0);
+    for(var av=0;av<=6;av++){var aopt=document.createElement('option');aopt.value=av;aopt.textContent=av;areaSel.appendChild(aopt);}
+    if(d.area!==null) areaSel.value=String(d.area);
+    (function(aId){areaSel.onchange=function(){easiData[aId].area=this.value===''?null:parseInt(this.value);buildEASI();calcEASI();};})(a.id);
+    areaSub.appendChild(areaLbl); areaSub.appendChild(areaSel);
+    grid.appendChild(areaSub);
+    div.appendChild(hdr); div.appendChild(grid);
+    c.appendChild(div);
+  }
+}
+function calcEASIArea(id){
+  var d=easiData[id];
+  if(d.e===null||d.i===null||d.ex===null||d.l===null||d.area===null) return 0;
+  var a=null;
+  for(var k=0;k<EASI_AREAS.length;k++){if(EASI_AREAS[k].id===id){a=EASI_AREAS[k];break;}}
+  return a.weight*(d.e+d.i+d.ex+d.l)*d.area;
+}
+function getEASI(){
+  for(var k=0;k<EASI_AREAS.length;k++){
+    var d=easiData[EASI_AREAS[k].id];
+    if(d.e===null||d.i===null||d.ex===null||d.l===null||d.area===null) return null;
+  }
+  var t=0;
+  for(var k=0;k<EASI_AREAS.length;k++) t+=calcEASIArea(EASI_AREAS[k].id);
+  return Math.round(t*10)/10;
+}
+function calcEASI(){
+  var t=getEASI();
+  var el=document.getElementById('easiResult'),tot=document.getElementById('easiTotal'),lbl=document.getElementById('easiLbl'),desc=document.getElementById('easiDesc'),badge=document.getElementById('easiBadge');
+  el.className='result-box'; badge.style.display='none';
+  if(t===null){tot.textContent='—';lbl.textContent='Completá todas las regiones';desc.textContent='Ingresá los valores de las 4 regiones.';return;}
+  tot.textContent=t; badge.style.display='inline-block';
+  for(var i=0;i<criterios.length;i++){if(criterios[i].id==='c1'){criterios[i].checked=(t>=16);buildCriterios();break;}}
+  if(t<7){el.classList.add('ctrl');lbl.textContent='DA leve (EASI <7)';desc.textContent='Manejo con tópicos.';badge.textContent='EASI <7 · Leve';}
+  else if(t<=21){el.classList.add('mod');lbl.textContent='DA moderada (EASI 7–21)';desc.textContent='Evaluar tratamiento sistémico / biológico.';badge.textContent='EASI 7–21 · Moderada';}
+  else{el.classList.add('sev');lbl.textContent='DA severa (EASI >21)';desc.textContent='✅ Criterio de biológico cumplido.';badge.textContent='EASI >21 · Severa · Indicación biológico';}
+}
+
+// SCORAD
+function buildSCORADB(){
+  var c=document.getElementById('scoradB'); c.innerHTML='';
+  for(var i=0;i<SCORAD_B_SIGNS.length;i++){
+    var s=SCORAD_B_SIGNS[i];
+    var div=document.createElement('div');
+    div.style.cssText='display:flex;flex-direction:column;gap:0.28rem;';
+    var lbl=document.createElement('label');
+    lbl.style.cssText='font-size:0.68rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);';
+    lbl.textContent=s.label+' (0–3)';
+    var inp=document.createElement('input');
+    inp.type='number'; inp.min=0; inp.max=3; inp.placeholder='0–3';
+    inp.value=scoradBData[s.id]!==null?scoradBData[s.id]:'';
+    inp.style.cssText='background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:0.58rem 0.85rem;font-family:Raleway,sans-serif;font-size:0.87rem;color:var(--ink);outline:none;text-align:center;';
+    (function(id){inp.oninput=function(){var v=parseFloat(this.value);scoradBData[id]=(isNaN(v)?null:Math.min(3,Math.max(0,v)));calcSCORAD();};})(s.id);
+    div.appendChild(lbl); div.appendChild(inp);
+    c.appendChild(div);
+  }
+}
+function getSCORAD(){
+  var aEl=document.getElementById('scorad_a');
+  var pEl=document.getElementById('scorad_prurito');
+  var iEl=document.getElementById('scorad_insomnio');
+  if(!aEl||!pEl||!iEl) return null;
+  var a=parseFloat(aEl.value);
+  var pr=parseFloat(pEl.value);
+  var ins=parseFloat(iEl.value);
+  var bOk=true;
+  for(var k=0;k<SCORAD_B_SIGNS.length;k++){if(scoradBData[SCORAD_B_SIGNS[k].id]===null){bOk=false;break;}}
+  if(isNaN(a)||isNaN(pr)||isNaN(ins)||!bOk) return null;
+  var B=0; for(var k=0;k<SCORAD_B_SIGNS.length;k++) B+=(scoradBData[SCORAD_B_SIGNS[k].id]||0);
+  return Math.round((a/5+7*B/2+(pr+ins))*10)/10;
+}
+function calcSCORAD(){
+  var B=0; var bOk=true;
+  for(var k=0;k<SCORAD_B_SIGNS.length;k++){
+    if(scoradBData[SCORAD_B_SIGNS[k].id]===null){bOk=false;}
+    else B+=(scoradBData[SCORAD_B_SIGNS[k].id]||0);
+  }
+  var btot=document.getElementById('scoradBtotal');
+  if(btot) btot.textContent=bOk?B:'—';
+  var t=getSCORAD();
+  var el=document.getElementById('scoradResult'),tot=document.getElementById('scoradTotal'),lbl=document.getElementById('scoradLbl'),desc=document.getElementById('scoradDesc'),badge=document.getElementById('scoradBadge');
+  el.className='result-box'; badge.style.display='none';
+  if(t===null){tot.textContent='—';lbl.textContent='Completá todos los campos';desc.textContent='Ingresá extensión, intensidad y síntomas.';return;}
+  tot.textContent=t; badge.style.display='inline-block';
+  for(var i=0;i<criterios.length;i++){if(criterios[i].id==='c3'){criterios[i].checked=(t>=25);buildCriterios();break;}}
+  if(t<25){el.classList.add('ctrl');lbl.textContent='DA leve (<25)';desc.textContent='Manejo con tópicos.';badge.textContent='SCORAD <25 · Leve';}
+  else if(t<=50){el.classList.add('mod');lbl.textContent='DA moderada (25–50)';desc.textContent='✅ Evaluar tratamiento sistémico / biológico.';badge.textContent='SCORAD 25–50 · Moderada';}
+  else{el.classList.add('sev');lbl.textContent='DA severa (>50)';desc.textContent='✅ Criterio de biológico cumplido.';badge.textContent='SCORAD >50 · Severa';}
+}
+
+// DLQI
+function getDLQI(){
+  var ok=true;
+  for(var i=0;i<dlqiData.length;i++){if(dlqiData[i]===null){ok=false;break;}}
+  if(!ok) return null;
+  var t=0; for(var i=0;i<dlqiData.length;i++) t+=dlqiData[i];
+  return t;
+}
+function buildDLQI(){
+  var c=document.getElementById('dlqiQs'); c.innerHTML='';
+  var labels=['0 · Nada','1 · Un poco','2 · Bastante','3 · Muchísimo'];
+  for(var i=0;i<DLQI_QS.length;i++){
+    var q=document.createElement('div');
+    q.className='dlqi-q'+(dlqiData[i]!==null?' answered':'');
+    var txt=document.createElement('div');
+    txt.className='dlqi-q-text';
+    var num=document.createElement('span');
+    num.className='dlqi-q-num'; num.textContent=(i+1)+'.';
+    txt.appendChild(num); txt.appendChild(document.createTextNode(DLQI_QS[i]));
+    var opts=document.createElement('div'); opts.className='dlqi-opts';
+    for(var v=0;v<4;v++){
+      var btn=document.createElement('button');
+      btn.className='dlqi-btn'+(dlqiData[i]===v?' sel':'');
+      btn.textContent=labels[v];
+      (function(qi,vi){btn.onclick=function(){dlqiData[qi]=vi;buildDLQI();calcDLQI();};})(i,v);
+      opts.appendChild(btn);
+    }
+    q.appendChild(txt); q.appendChild(opts);
+    c.appendChild(q);
+  }
+}
+function calcDLQI(){
+  var t=getDLQI();
+  var el=document.getElementById('dlqiResult'),tot=document.getElementById('dlqiTotal'),lbl=document.getElementById('dlqiLbl'),desc=document.getElementById('dlqiDesc'),badge=document.getElementById('dlqiBadge');
+  el.className='result-box'; badge.style.display='none';
+  if(t===null){tot.textContent='—';lbl.textContent='Completá todas las preguntas';desc.textContent='Respondé las 10 preguntas.';return;}
+  tot.textContent=t; badge.style.display='inline-block';
+  for(var i=0;i<criterios.length;i++){if(criterios[i].id==='c2'){criterios[i].checked=(t>=10);buildCriterios();break;}}
+  if(t<=1){el.classList.add('ctrl');lbl.textContent='Sin efecto';badge.textContent='DLQI 0–1';}
+  else if(t<=5){el.classList.add('mild');lbl.textContent='Pequeño efecto';badge.textContent='DLQI 2–5';}
+  else if(t<=10){el.classList.add('mod');lbl.textContent='Efecto moderado';badge.textContent='DLQI 6–10';}
+  else if(t<=20){el.classList.add('sev');lbl.textContent='Efecto grande';desc.textContent='✅ DLQI ≥ 10. Criterio cumplido.';badge.textContent='DLQI 11–20 · Grande';}
+  else{el.classList.add('sev');lbl.textContent='Efecto extremo';desc.textContent='✅ DLQI ≥ 10. Criterio cumplido.';badge.textContent='DLQI 21–30 · Extremo';}
+}
+
+// BIOLÓGICOS
+function buildBioGrid(){
+  var g=document.getElementById('bioGrid'); g.innerHTML='';
+  for(var i=0;i<BIOS.length;i++){
+    var b=BIOS[i];
+    var card=document.createElement('div');
+    card.className='bio-card'+(selectedBio&&selectedBio.id===b.id?' selected':'');
+    var nameDiv=document.createElement('div'); nameDiv.className='bio-name'; nameDiv.textContent=b.name;
+    var brandDiv=document.createElement('div'); brandDiv.className='bio-brand'; brandDiv.textContent=b.brand;
+    var tagsDiv=document.createElement('div'); tagsDiv.className='bio-tags';
+    var mechSpan=document.createElement('span'); mechSpan.className='bio-mech '+b.mechClass; mechSpan.textContent=b.mech;
+    tagsDiv.appendChild(mechSpan);
+    for(var j=0;j<b.tags.length;j++){var ts=document.createElement('span');ts.className='bio-tag';ts.textContent=b.tags[j];tagsDiv.appendChild(ts);}
+    var doseDiv=document.createElement('div'); doseDiv.className='bio-dose-preview'; doseDiv.innerHTML=b.dosePreview;
+    card.appendChild(nameDiv); card.appendChild(brandDiv); card.appendChild(tagsDiv); card.appendChild(doseDiv);
+    (function(bio){card.onclick=function(){selectedBio=bio;buildBioGrid();showBioInfo();};})(b);
+    g.appendChild(card);
+  }
+}
+function showBioInfo(){
+  if(!selectedBio){document.getElementById('bioInfoBox').style.display='none';return;}
+  var b=selectedBio;
+  document.getElementById('bioInfoBox').style.display='block';
+  var box=document.getElementById('bioInfoContent');
+  box.innerHTML='<div class="bio-info-name">'+b.name+'</div>'
+    +'<div class="bio-info-brand">'+b.brand+' · '+b.mech+'</div>'
+    +'<div class="bio-info-grid">'
+    +'<div class="bio-info-item"><label>Dosis</label><div class="biv">'+b.dosis+'</div></div>'
+    +'<div class="bio-info-item"><label>Via / Presentación</label><div class="biv">'+b.via+'<small>'+b.presentacion+'</small></div></div>'
+    +'<div class="bio-info-item"><label>Frecuencia mantenimiento</label><div class="biv">'+b.frecuencia+'</div></div>'
+    +'</div>'
+    +'<div class="bio-scheme"><strong>Esquema completo:</strong><br>'+b.scheme+'</div>'
+    +'<div class="bio-warning">⚠️ '+b.warning+'</div>';
+}
+
+// TRATAMIENTOS
+function buildTtos(){
+  var l=document.getElementById('ttoList'); l.innerHTML='';
+  for(var i=0;i<TTOS.length;i++){
+    var t=TTOS[i];
+    var row=document.createElement('div');
+    row.className='tto-row'+(ttoChecked[t.id]?' checked':'');
+    var icon=document.createElement('div'); icon.className='tto-icon'; icon.textContent=ttoChecked[t.id]?'✓':'';
+    var det=document.createElement('div'); det.className='tto-detail';
+    var nm=document.createElement('div'); nm.className='tto-name'; nm.textContent=t.name;
+    var nt=document.createElement('div'); nt.className='tto-note'; nt.textContent=t.note;
+    det.appendChild(nm); det.appendChild(nt);
+    var res=document.createElement('div'); res.className='tto-res'; res.textContent=t.res;
+    row.appendChild(icon); row.appendChild(det); row.appendChild(res);
+    (function(id){row.onclick=function(){ttoChecked[id]=!ttoChecked[id];buildTtos();};})(t.id);
+    l.appendChild(row);
+  }
+}
+
+// CRITERIOS
+function buildCriterios(){
+  var g=document.getElementById('criteriosGrid'); g.innerHTML='';
+  for(var i=0;i<criterios.length;i++){
+    var c=criterios[i];
+    var item=document.createElement('div');
+    item.className='check-item'+(c.checked?' checked':'');
+    var box=document.createElement('div'); box.className='check-box';
+    var txt=document.createElement('span'); txt.textContent=c.label;
+    item.appendChild(box); item.appendChild(txt);
+    (function(ci){item.onclick=function(){ci.checked=!ci.checked;buildCriterios();};})(c);
+    g.appendChild(item);
+  }
+}
+
+// ESTUDIOS
+function buildEstGrid(items,containerId){
+  var c=document.getElementById(containerId); if(!c) return;
+  c.innerHTML='';
+  for(var j=0;j<items.length;j++){
+    var item=items[j];
+    var d=estData[item.id];
+    var row=document.createElement('div');
+    row.style.cssText='display:grid;grid-template-columns:1fr auto;gap:0.5rem;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--border);';
+    var left=document.createElement('div');
+    var nameDiv=document.createElement('div');
+    nameDiv.style.cssText='font-size:0.82rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;';
+    nameDiv.textContent=item.name;
+    var inp=document.createElement('input');
+    inp.placeholder='Resultado / fecha / valor';
+    inp.value=d.resultado||'';
+    inp.style.cssText='background:var(--cream);border:1px solid var(--border);border-radius:6px;padding:0.3rem 0.6rem;font-family:Raleway,sans-serif;font-size:0.78rem;width:100%;outline:none;';
+    (function(id){inp.oninput=function(){estData[id].resultado=this.value;};})(item.id);
+    left.appendChild(nameDiv); left.appendChild(inp);
+    var right=document.createElement('div');
+    right.style.cssText='display:flex;flex-direction:column;gap:0.25rem;min-width:110px;';
+    for(var k=0;k<ESTADOS.length;k++){
+      var s=ESTADOS[k];
+      var sel=d.estado===s;
+      var btn=document.createElement('button');
+      btn.textContent=s;
+      btn.style.cssText='padding:0.2rem 0.4rem;border-radius:5px;font-size:0.65rem;font-weight:700;cursor:pointer;font-family:Raleway,sans-serif;border:1.5px solid '+(sel?'transparent':'var(--border)')+';background:'+(sel?(s==='Realizado'?'var(--rose)':s==='Pendiente'?'#c0392b':'var(--muted)'):'#fff')+';color:'+(sel?'#fff':'var(--muted)')+';';
+      (function(id,estado){btn.onclick=function(){setEst(id,estado);};})(item.id,s);
+      right.appendChild(btn);
+    }
+    row.appendChild(left); row.appendChild(right);
+    c.appendChild(row);
+  }
+}
+function setEst(id,estado){estData[id].estado=estado;buildEstGridAll();}
+function buildEstGridAll(){
+  buildEstGrid(LAB_ITEMS,'labGrid');
+  buildEstGrid(SERO_ITEMS,'seroGrid');
+  buildEstGrid(TBC_ITEMS,'tbcGrid');
+  buildEstGrid(VAC_ITEMS,'vacGrid');
+}
+
+// HELPERS
+function gv(id){var el=document.getElementById(id);return el?el.value||'—':'—';}
+
+function buildEstSection(){
+  var all=[].concat(LAB_ITEMS,SERO_ITEMS,TBC_ITEMS,VAC_ITEMS);
+  var pendientes=0, realizados=0;
+  for(var i=0;i<all.length;i++){
+    if(estData[all[i].id].estado==='Realizado') realizados++;
+    else if(estData[all[i].id].estado==='Pendiente') pendientes++;
+  }
+  var h='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem;margin-bottom:0.8rem;">';
+  h+='<div style="background:#edf7f2;border:1px solid #6dbf94;border-radius:8px;padding:0.6rem 0.8rem;text-align:center;"><div style="font-family:Lora,serif;font-size:1.8rem;color:#1e8c5a;">'+realizados+'</div><div style="font-size:0.68rem;font-weight:700;color:#1e8c5a;">Realizados</div></div>';
+  h+='<div style="background:'+(pendientes?'#fef0f0':'#f8f7f3')+';border:1px solid '+(pendientes?'#c0392b':'var(--border)')+';border-radius:8px;padding:0.6rem 0.8rem;text-align:center;"><div style="font-family:Lora,serif;font-size:1.8rem;color:'+(pendientes?'#c0392b':'var(--muted)')+'">'+pendientes+'</div><div style="font-size:0.68rem;font-weight:700;color:'+(pendientes?'#c0392b':'var(--muted)')+'">Pendientes</div></div>';
+  h+='<div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:0.6rem 0.8rem;text-align:center;"><div style="font-family:Lora,serif;font-size:1.8rem;color:var(--muted);">'+all.length+'</div><div style="font-size:0.68rem;font-weight:700;color:var(--muted);">Total</div></div></div>';
+  var groups=[{title:'Laboratorio general',items:LAB_ITEMS},{title:'Serologías',items:SERO_ITEMS},{title:'Screening TBC',items:TBC_ITEMS},{title:'Vacunas',items:VAC_ITEMS}];
+  for(var gi=0;gi<groups.length;gi++){
+    var g=groups[gi];
+    h+='<div style="margin-bottom:0.6rem;"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose);margin-bottom:0.4rem;">'+g.title+'</div>';
+    h+='<table style="width:100%;border-collapse:collapse;font-size:0.76rem;border:1px solid var(--border);border-radius:8px;overflow:hidden;">';
+    h+='<thead><tr style="background:var(--ink2);color:#fff;"><th style="padding:0.32rem 0.6rem;text-align:left;">Estudio</th><th style="padding:0.32rem 0.6rem;text-align:center;width:90px;">Estado</th><th style="padding:0.32rem 0.6rem;text-align:left;">Resultado / fecha</th></tr></thead><tbody>';
+    for(var ii=0;ii<g.items.length;ii++){
+      var item=g.items[ii];
+      var d=estData[item.id];
+      var col=d.estado==='Realizado'?'#1e8c5a':d.estado==='Pendiente'?'#c0392b':'var(--muted)';
+      h+='<tr style="background:'+(ii%2?'var(--cream)':'#fff')+'">';
+      h+='<td style="padding:0.3rem 0.6rem;border-top:1px solid var(--border);">'+item.name+'</td>';
+      h+='<td style="text-align:center;border-top:1px solid var(--border);font-weight:700;color:'+col+';">'+(d.estado||'—')+'</td>';
+      h+='<td style="padding:0.3rem 0.6rem;border-top:1px solid var(--border);color:var(--muted);">'+(d.resultado||'—')+'</td>';
+      h+='</tr>';
+    }
+    h+='</tbody></table></div>';
+  }
+  var obsEst=document.getElementById('est_obs');
+  if(obsEst&&obsEst.value) h+='<div style="margin-top:0.5rem;font-size:0.79rem;color:var(--muted);"><strong style="color:var(--ink)">Observaciones:</strong> '+obsEst.value+'</div>';
+  return h;
+}
+
+// SUMMARY
+function buildSummary(){
+  var easi=getEASI(); var scorad=getSCORAD(); var dlqi=getDLQI();
+  var b=selectedBio;
+  var eCol='var(--muted)',eLbl='Sin calcular';
+  if(easi!==null){if(easi<7){eCol='#1e8c5a';eLbl='Leve (<7)';}else if(easi<=21){eCol='#e07b2a';eLbl='Moderado (7–21)';}else{eCol='#c0392b';eLbl='Severo (>21)';}}
+  var sCol='var(--muted)',sLbl='Sin calcular';
+  if(scorad!==null){if(scorad<25){sCol='#1e8c5a';sLbl='Leve (<25)';}else if(scorad<=50){sCol='#e07b2a';sLbl='Moderado (25–50)';}else{sCol='#c0392b';sLbl='Severo (>50)';}}
+  var cttos=[];
+  for(var i=0;i<TTOS.length;i++){if(ttoChecked[TTOS[i].id]) cttos.push(TTOS[i]);}
+  var edad=gv('pac_edad')!=='—'?gv('pac_edad')+' años':'—';
+  var logoSVG='<svg width="30" height="30" viewBox="0 0 100 100" fill="none"><path d="M55 15 Q70 15 75 30 Q80 45 72 60 Q65 72 55 75 Q45 78 38 70" stroke="url(#rg3)" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="68" cy="58" r="14" stroke="url(#lg3)" stroke-width="3.5" fill="rgba(196,146,122,0.15)"/><line x1="78" y1="68" x2="88" y2="80" stroke="url(#lg3)" stroke-width="4" stroke-linecap="round"/><circle cx="62" cy="54" r="2.8" fill="#c4927a" opacity="0.8"/><defs><linearGradient id="rg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c4927a"/><stop offset="100%" stop-color="#7a7a9a"/></linearGradient><linearGradient id="lg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7a7a9a"/><stop offset="100%" stop-color="#c4927a"/></linearGradient></defs></svg>';
+  var ttoH='';
+  if(cttos.length){for(var i=0;i<cttos.length;i++){var t=cttos[i];ttoH+='<div style="display:flex;align-items:flex-start;gap:0.45rem;padding:0.3rem 0;border-bottom:1px solid var(--border);font-size:0.79rem;"><span style="color:var(--rose);font-weight:700;">✓</span><div><strong>'+t.name+'</strong> <span style="color:var(--muted);font-size:0.73rem;">· '+t.note+'</span><br><span style="font-size:0.7rem;color:#c0392b;font-weight:700;">'+t.res+'</span></div></div>';}}
+  else ttoH='<p style="font-size:0.8rem;color:var(--muted);">No se documentaron tratamientos previos.</p>';
+  var critH='<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.36rem;">';
+  for(var i=0;i<criterios.length;i++){var c=criterios[i];critH+='<div style="display:flex;align-items:center;gap:0.42rem;font-size:0.77rem;padding:0.28rem 0.5rem;border-radius:6px;background:'+(c.checked?'var(--rose-l)':'var(--cream)')+';border:1px solid '+(c.checked?'var(--rose-m)':'var(--border)')+'"><span style="color:'+(c.checked?'var(--rose)':'var(--muted)')+';font-weight:700;">'+(c.checked?'✓':'○')+'</span><span>'+c.label+'</span></div>';}
+  critH+='</div>';
+  var schemeH=b?('<div style="background:var(--cream2);border-radius:8px;padding:0.8rem 1rem;font-size:0.8rem;line-height:1.7;color:var(--ink2);margin-top:0.75rem;">'+b.scheme+'</div><div style="margin-top:0.6rem;font-size:0.77rem;color:#c0392b;background:#fff0f0;border:1px solid #fcc;border-radius:7px;padding:0.55rem 0.75rem;">⚠️ '+b.warning+'</div>'):'<p style="font-size:0.8rem;color:var(--muted);">No se seleccionó tratamiento.</p>';
+
+  var html='<div class="sum-hd">'
+    +'<div style="display:flex;align-items:center;gap:0.85rem;">'
+    +'<div style="width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--rose-l),var(--lav-l));border:1.5px solid var(--rose-m);display:flex;align-items:center;justify-content:center;flex-shrink:0;">'+logoSVG+'</div>'
+    +'<div><div style="font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:-0.02em;">Derm<em style="font-style:italic;background:linear-gradient(135deg,#e8b4a0,#b4b4d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">IA</em></div>'
+    +'<div style="font-size:0.57rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.38);">Dermatología + Inteligencia Artificial</div></div></div>'
+    +'<div><h2>Solicitud de Medicación de Alto Costo</h2><p>Dermatitis Atópica · Tratamiento Biológico / JAKi</p></div>'
+    +'<div class="sum-tag">'+(b?b.name:'Tratamiento')+'</div></div>'
+    +'<div class="sum-body">'
+    +'<div class="sum-sec"><div class="sum-sec-title">Médico solicitante</div>'
+    +'<div class="sum-row"><div class="sum-key">Nombre</div><div class="sum-val">'+gv('med_nombre')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Especialidad</div><div class="sum-val">'+gv('med_esp')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Matrícula</div><div class="sum-val">'+gv('med_mat')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Institución</div><div class="sum-val">'+gv('med_inst')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Contacto</div><div class="sum-val">'+gv('med_tel')+' · '+gv('med_mail')+'</div></div></div>'
+    +'<div class="sum-sec"><div class="sum-sec-title">Paciente</div>'
+    +'<div class="sum-row"><div class="sum-key">Nombre</div><div class="sum-val">'+gv('pac_nombre')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">DNI</div><div class="sum-val">'+gv('pac_dni')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Edad / Sexo</div><div class="sum-val">'+edad+' · '+gv('pac_sexo')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Obra social / Plan</div><div class="sum-val">'+gv('pac_os')+' · '+gv('pac_plan')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">N° afiliado</div><div class="sum-val">'+gv('pac_afil')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Peso / Talla / IMC</div><div class="sum-val">'+gv('pac_peso')+' kg / '+gv('pac_talla')+' cm / IMC '+gv('pac_imc')+' kg/m²</div></div>'
+    +(gv('pac_comor')!=='—'?'<div class="sum-row"><div class="sum-key">Comorbilidades</div><div class="sum-val">'+gv('pac_comor')+'</div></div>':'')
+    +'</div>'
+    +'<div class="sum-sec"><div class="sum-sec-title">Diagnóstico · CIE-10: L20.9</div>'
+    +'<div class="sum-row"><div class="sum-key">Diagnóstico</div><div class="sum-val">Dermatitis Atópica — '+gv('cli_patron')+'</div></div>'
+    +'<div class="sum-row"><div class="sum-key">Evolución</div><div class="sum-val">'+gv('pac_evol')+'</div></div>'
+    +'</div>'
+    +'<div class="sum-sec"><div class="sum-sec-title">Score EASI</div>'
+    +'<div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:0.8rem;">'
+    +'<div class="big-score" style="color:'+eCol+'">'+(easi!==null?easi:'—')+'</div>'
+    +'<div><div style="font-weight:700;font-size:0.95rem;color:'+eCol+';">'+eLbl+'</div>'
+    +'<div style="font-size:0.77rem;color:var(--muted);margin-top:0.1rem;">Puntaje sobre 72 · EASI ≥ 16 = indicación biológico</div></div></div></div>'
+    +'<div class="sum-sec"><div class="sum-sec-title">Score SCORAD</div>'
+    +'<div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;">'
+    +'<div class="big-score" style="color:'+sCol+'">'+(scorad!==null?scorad.toFixed(1):'—')+'</div>'
+    +'<div><div style="font-weight:700;font-size:0.95rem;color:'+sCol+';">'+sLbl+'</div>'
+    +'<div style="font-size:0.77rem;color:var(--muted);margin-top:0.1rem;">Puntaje sobre 103 · Severo: >50</div></div></div></div>'
+    +'<div class="sum-sec"><div class="sum-sec-title">Score DLQI</div>'
+    +'<div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;">'
+    +'<div class="big-score" style="color:'+(dlqi!==null?(dlqi<=1?'#1e8c5a':dlqi<=10?'#e07b2a':'#c0392b'):'var(--muted)')+'">'+(dlqi!==null?dlqi:'—')+'</div>'
+    +'<div><div style="font-weight:700;font-size:0.95rem;color:'+(dlqi!==null?(dlqi<=1?'#1e8c5a':dlqi<=10?'#e07b2a':'#c0392b'):'var(--muted)')+';">'+(dlqi!==null?(dlqi<=1?'Sin efecto':dlqi<=10?'Moderado':'Grande/Extremo'):'Sin calcular')+'</div>'
+    +'<div style="font-size:0.77rem;color:var(--muted);margin-top:0.1rem;">Puntaje sobre 30</div></div></div></div>'
+    +'<div class="sum-sec"><div class="sum-sec-title">Tratamiento indicado · Posología</div>'
+    +'<div class="rx-hl">'
+    +'<div class="rx-it"><label>Droga</label><div class="rv">'+(b?b.name:'—')+'<small>'+(b?b.mech:'')+'</small></div></div>'
+    +'<div class="rx-it"><label>Marca / Presentación</label><div class="rv">'+(b?b.brand:'—')+'<small>'+(b?b.presentacion:'')+'</small></div></div>'
+    +'<div class="rx-it"><label>Dosis</label><div class="rv">'+(b?b.dosis:'—')+'</div></div>'
+    +'<div class="rx-it"><label>Vía</label><div class="rv">'+(b?b.via:'—')+'</div></div>'
+    +'<div class="rx-it"><label>Frecuencia</label><div class="rv">'+(b?b.frecuencia:'—')+'</div></div>'
+    +'<div class="rx-it"><label>Duración inicial</label><div class="rv">'+(b?b.duracion:'—')+'</div></div>'
+    +'</div>'+schemeH+'</div>'
+    +'<div class="sum-sec"><div class="sum-sec-title">Tratamientos previos</div>'+ttoH
+    +(gv('cli_otros')!=='—'?'<div style="margin-top:0.5rem;font-size:0.79rem;color:var(--muted);"><strong style="color:var(--ink)">Otros:</strong> '+gv('cli_otros')+'</div>':'')
+    +'</div>'
+    +'<div class="sum-sec"><div class="sum-sec-title">Criterios de indicación</div>'+critH+'</div>'
+    +(gv('cli_obs')!=='—'?'<div class="sum-sec"><div class="sum-sec-title">Observaciones</div><p style="font-size:0.82rem;line-height:1.6;color:var(--ink2);">'+gv('cli_obs')+'</p></div>':'')
+    +'<div class="sum-sec"><div class="sum-sec-title">Estudios previos al tratamiento</div>'+buildEstSection()+'</div>'
+    +'<div class="sum-sec"><div class="sum-sec-title">Firmas</div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:0.8rem;">'
+    +'<div><div style="height:52px;"></div><div style="border-top:1.5px solid var(--ink);padding-top:0.32rem;">'
+    +'<div style="font-size:0.74rem;color:var(--muted);">Firma y sello del médico solicitante</div>'
+    +'<div style="font-size:0.8rem;font-weight:700;margin-top:0.14rem;">'+gv('med_nombre')+'</div>'
+    +'<div style="font-size:0.72rem;color:var(--muted);">'+gv('med_mat')+' · '+gv('med_esp')+'</div></div></div>'
+    +'<div><div style="height:52px;"></div><div style="border-top:1.5px solid var(--ink);padding-top:0.32rem;">'
+    +'<div style="font-size:0.74rem;color:var(--muted);">Fecha y lugar</div>'
+    +'<div style="font-size:0.8rem;font-weight:700;margin-top:0.14rem;">_______________________</div>'
+    +'</div></div></div></div></div>';
+  document.getElementById('summaryOut').innerHTML=html;
+}
+
+function resetAll(){
+  if(!confirm('Nuevo pedido? Se borrarán todos los datos.')) return;
+  document.querySelectorAll('input,textarea').forEach(function(el){el.value='';});
+  document.querySelectorAll('select').forEach(function(el){el.selectedIndex=0;});
+  selectedBio=null;
+  EASI_AREAS.forEach(function(a){easiData[a.id]={e:null,i:null,ex:null,l:null,area:null};});
+  SCORAD_B_SIGNS.forEach(function(s){scoradBData[s.id]=null;});
+  for(var i=0;i<dlqiData.length;i++) dlqiData[i]=null;
+  ttoChecked={t2:true,t3:true,t7:true};
+  criterios.forEach(function(c){c.checked=['c4','c5','c6','c8','c9'].indexOf(c.id)>=0;});
+  initEstData();
+  document.getElementById('bmiResult').style.display='none';
+  buildBioGrid(); buildEASI(); buildSCORADB(); buildDLQI(); buildTtos(); buildCriterios(); buildEstGridAll();
+  goTo(0);
+}
+
+buildBioGrid(); buildEASI(); buildSCORADB(); buildDLQI(); buildTtos(); buildCriterios(); buildEstGridAll();
+updateMobNav();
+
+</script>
+</body>
+</html>
